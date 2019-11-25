@@ -10,7 +10,6 @@
   "git.confirmSync": false,
   "git.autofetch": true,
   "git.ignoreMissingGitWarning": true,
-  "prettier.eslintIntegration": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
