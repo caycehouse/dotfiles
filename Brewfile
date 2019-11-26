@@ -12,6 +12,7 @@ brew "git"
 brew "gpg"
 brew "grip"
 brew "hub"
+brew "jq"
 brew "mailhog"
 brew "mas"
 brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
