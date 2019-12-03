@@ -1,0 +1,10 @@
+# Additional git repositories to pull
+git_repos = [
+    "~/src/*/"
+]
+
+# List of remote machines with Topgrade installed on them
+remote_topgrades = ["waffle", "twinkies", "houseco", "christcs", "cpc"]
+
+# Cleanup temporary or old files
+cleanup = true

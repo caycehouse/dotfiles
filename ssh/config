@@ -4,8 +4,14 @@ Host waffle
 Host twinkies
 	HostName 104.238.131.251
 
-Host zingers
-	HostName 207.246.95.203
+Host houseco
+	HostName houseco.3cx.us
+
+Host christcs
+	HostName christcs.nc.3cx.us
+
+Host cpc
+	HostName cpc.nc.3cx.us
 
 Host *
 	StrictHostKeyChecking ask
