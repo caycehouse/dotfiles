@@ -25,6 +25,8 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
 
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 # Make Homebrew safer
 export HOMEBREW_CASK_OPTS=--require-sha
 export HOMEBREW_NO_ANALYTICS=1
