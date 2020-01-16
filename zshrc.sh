@@ -8,6 +8,7 @@ zplug peterhurford/up.zsh
 zplug zsh-users/zsh-autosuggestions
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-syntax-highlighting
+zplug MichaelAquilina/zsh-you-should-use
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -25,6 +26,7 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
 
+# Configure autosuggestions strategy
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Make Homebrew safer
