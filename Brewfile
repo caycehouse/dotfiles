@@ -58,6 +58,7 @@ cask "spectacle"
 cask "steam"
 cask "suspicious-package"
 cask "the-unarchiver"
+cask "virtualbox"
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
 mas "Apple Remote Desktop", id: 409907375
