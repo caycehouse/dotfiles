@@ -12,7 +12,7 @@ uname -s | grep -q "_NT-" && export WINDOWS=1
 if [ $MACOS ]
 then
   VSCODE="$HOME/Library/Application Support/Code/User"
-  TOPGRADE="$HOME/Library/Preferences"
+  TOPGRADE="$HOME/.config"
 elif [ $LINUX ]
 then
   VSCODE="$HOME/.config/Code/User"
