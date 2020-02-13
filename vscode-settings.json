@@ -13,7 +13,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1565889241792,
+  "php-cs-fixer.lastDownload": 1580846580024,
   "explorer.confirmDelete": false,
   "files.associations": {
     "*.leex": "HTML (Eex)"
@@ -22,5 +22,6 @@
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnSaveTimeout": 5000
 }
