@@ -7,3 +7,6 @@ script/dock
 script/extract-onepassword-secrets
 script/install-vscode-extensions
 script/terminal
+
+composer global require laravel/valet
+"$HOME"/.composer/vendor/bin/valet install
