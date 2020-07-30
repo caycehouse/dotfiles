@@ -7,5 +7,3 @@ script/dock
 script/extract-onepassword-secrets
 script/install-vscode-extensions
 script/terminal
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
