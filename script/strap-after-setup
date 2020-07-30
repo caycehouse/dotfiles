@@ -8,9 +8,6 @@ script/extract-onepassword-secrets
 script/install-vscode-extensions
 script/terminal
 
-composer global require laravel/valet
-"$HOME"/.composer/vendor/bin/valet install
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 if [ "$SHELL" != '/bin/zsh' ]
