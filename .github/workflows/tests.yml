@@ -16,8 +16,5 @@ jobs:
       - name: Test script/setup
         run: bash script/setup
 
-      - name: Install Oh My Zsh
-        run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
       - name: Test zshrc
         run: zsh -c "source ~/.zshrc"
