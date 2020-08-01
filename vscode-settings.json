@@ -2,11 +2,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "editor.rulers": [
-    80,
-    100,
-    120
-  ],
+  "editor.rulers": [80, 100, 120],
   "workbench.colorTheme": "Dracula",
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
@@ -26,7 +22,5 @@
   },
   "workbench.iconTheme": "vscode-icons",
   "blade.format.enable": true,
-  "projectManager.git.baseFolders": [
-    "$home/src"
-  ]
+  "projectManager.git.baseFolders": ["$home/src"]
 }
