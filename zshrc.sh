@@ -1,11 +1,6 @@
-# Check if zplug is installed.
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
-
 # Essential.
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 # Keybindings for substring search plugin. Maps up and down arrows.
 bindkey -M main '^[[A' history-substring-search-up
