@@ -15,6 +15,9 @@ jobs:
 
       - name: Test script/setup
         run: bash script/setup
+      
+      - name: Install zplug from Homebrew
+        run: brew install zplug
 
       - name: Test zshrc
         run: zsh -c "source ~/.zshrc"
