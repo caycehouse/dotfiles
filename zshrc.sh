@@ -14,6 +14,9 @@ bindkey -M main '^[[B' history-substring-search-up
 # Add composer's binfiles to path.
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+# Add Homebrew's binfiles to path.
+export PATH="/usr/local/sbin:$PATH"
+
 # Make sure to use double quotes to prevent shell expansion.
 zplug "woefe/wbase.zsh"
 zplug "zsh-users/zsh-completions"
