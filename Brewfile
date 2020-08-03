@@ -16,6 +16,7 @@ brew "mas"
 brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
 brew "neofetch"
 brew "nmap"
+brew "npm"
 brew "php"
 brew "pinentry-mac"
 brew "shellcheck"
