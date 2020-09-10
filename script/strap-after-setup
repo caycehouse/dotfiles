@@ -5,7 +5,6 @@ cd "$(dirname "$0")/.." || exit
 
 script/dock
 script/extract-onepassword-secrets
-script/install-vscode-extensions
 script/terminal
 
 composer global require laravel/valet

@@ -11,15 +11,12 @@ uname -s | grep -q "_NT-" && export WINDOWS=1
 
 if [ $MACOS ]
 then
-  VSCODE="$HOME/Library/Application Support/Code/User"
   TOPGRADE="$HOME/.config"
 elif [ $LINUX ]
 then
-  VSCODE="$HOME/.config/Code/User"
   TOPGRADE="$HOME/.config"
 elif [ $WINDOWS ]
 then
-  VSCODE="$APPDATA/Code/User"
   TOPGRADE="$APPDATA"
 fi
 
@@ -29,9 +26,6 @@ for DOTFILE in *; do
   DIRFILE="$DOTFILESDIR/$DOTFILE"
 
   echo $DOTFILE | egrep -q '(^script/$|\.txt$|\.md$)' && continue
-  echo $DOTFILE | grep -q 'vscode-settings' &&
-       HOMEFILE="$VSCODE/settings.json" &&
-       mkdir -p "$VSCODE"
   echo $DOTFILE | grep -q 'topgrade' &&
       HOMEFILE="$TOPGRADE/topgrade.toml"
 
