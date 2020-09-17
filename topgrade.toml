@@ -1,5 +1,5 @@
 # List of remote machines with Topgrade installed on them
-remote_topgrades = ["twinkies", "houseco", "christcs", "cpc"]
+remote_topgrades = ["twinkies", "christcs", "cpc"]
 
 # Cleanup temporary or old files
 cleanup = true

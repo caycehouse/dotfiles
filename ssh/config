@@ -1,9 +1,6 @@
 Host twinkies
 	HostName 104.238.131.251
 
-Host houseco
-	HostName houseco.3cx.us
-
 Host christcs
 	HostName christcs.nc.3cx.us
 
