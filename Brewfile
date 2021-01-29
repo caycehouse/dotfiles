@@ -56,6 +56,7 @@ cask "rectangle"
 cask "steam"
 cask "suspicious-package"
 cask "the-unarchiver"
+cask "tinkerwell"
 cask "virtualbox"
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
