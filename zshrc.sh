@@ -40,6 +40,7 @@ bindkey -M main '^[[B' history-substring-search-up
 # Aliases
 alias ls='exa'
 alias l='exa -l --git'
+alias sail='bash vendor/bin/sail'
 
 # Alias hub over git
 eval "$(hub alias -s)"
