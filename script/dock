@@ -16,7 +16,7 @@ dockutil --add /System/Applications/App\ Store.app --no-restart
 dockutil --add /System/Applications/Utilities/Terminal.app --no-restart
 dockutil --add /System/Applications/System\ Preferences.app --no-restart
 dockutil --add /Applications/Visual\ Studio\ Code.app --no-restart
-dockutil --add /Applications/DBeaver.app --no-restart
+dockutil --add /Applications/TablePlus.app --no-restart
 dockutil --add /Applications/Steam.app --no-restart
 dockutil --add "$HOME/Downloads" --display stack --no-restart
 
