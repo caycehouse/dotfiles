@@ -8,12 +8,12 @@ tap "homebrew/services"
 brew "dockutil"
 # Modern replacement for 'ls'
 brew "exa"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Add GitHub support to git on the command-line
-brew "hub"
 # Mac App Store command-line interface
 brew "mas"
 # Fast, highly customisable system info script
