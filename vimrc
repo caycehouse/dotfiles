@@ -1,13 +1,14 @@
-" Install plug if not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Install vim-plug if not found
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Map Leader to space
-nnoremap <Space> <Nop>
-let mapleader="\<SPACE>"
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 " Install plug plugins
 call plug#begin()
@@ -15,19 +16,12 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'scrooloose/nerdcommenter'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-eunuch'
-Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
@@ -38,20 +32,5 @@ set relativenumber number
 set updatetime=100
 
 " Use Dracula theme
-syntax on
 color dracula
 let g:airline_theme='dracula'
-
-" Open NERDTree with ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-
-" Show hidden files in NERDTree
-let NERDTreeShowHidden=1
-
-" Mapping easier fzf commands
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
-
-" Use grip instead of markdown for preview
-let vim_markdown_preview_github=1
