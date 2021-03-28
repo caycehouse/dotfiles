@@ -4,50 +4,78 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+# Tool for managing dock items
 brew "dockutil"
+# Modern replacement for 'ls'
 brew "exa"
+# Distributed revision control system
 brew "git"
+# GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Add GitHub support to git on the command-line
 brew "hub"
+# Mac App Store command-line interface
 brew "mas"
+# Fast, highly customisable system info script
 brew "neofetch"
+# Port scanning utility for large networks
 brew "nmap"
+# Pinentry for GPG on Mac
 brew "pinentry-mac"
-brew "shellcheck"
+# Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
+# Very fast implementation of tldr in Rust
 brew "tealdeer"
+# User interface to the TELNET protocol
 brew "telnet"
+# Programmatically correct mistyped console commands
 brew "thefuck"
+# Terminal multiplexer
 brew "tmux"
+# Upgrade all the things
 brew "topgrade"
-brew "zplug"
+# Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Prebuilt OpenJDK binaries
 cask "adoptopenjdk8"
+# Application uninstaller
 cask "appcleaner"
+# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-cask "cyberduck"
+# Voice and text chat software
 cask "discord"
+# Fira Code Font
 cask "font-fira-code"
+# Web browser
 cask "google-chrome"
-cask "google-drive-file-stream"
-cask "microsoft-office"
+# Client for the Google Drive storage service
+cask "google-drive"
+# Microsoft Teams
 cask "microsoft-teams"
+# Multi MC
 cask "multimc"
-cask "onyx"
+# Parsec
 cask "parsec"
-cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Application for inspecting installer packages
 cask "suspicious-package"
+# Native GUI tool for relational databases
 cask "tableplus"
-cask "the-unarchiver"
-cask "tinkerwell"
+# Open-source code editor
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
 mas "Apple Remote Desktop", id: 409907375
 mas "Balance Lock", id: 1019371109
 mas "Keynote", id: 409183694
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "The Unarchiver", id: 425424353
+mas "Transmit 5", id: 1436522307
 mas "Xcode", id: 497799835
 mas "Wipr", id: 1320666476
