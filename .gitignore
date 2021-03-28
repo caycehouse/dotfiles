@@ -8,4 +8,6 @@
 /gnupg/*.gpg
 /gnupg/*.kbx
 /gnupg/*.private.*
+/gnupg/.*
 secrets
+Brewfile.lock.json
