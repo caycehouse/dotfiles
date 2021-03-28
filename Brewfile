@@ -4,6 +4,10 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Good-lookin' diffs with diff-highlight and more
+brew "diff-so-fancy"
 # Tool for managing dock items
 brew "dockutil"
 # Modern replacement for 'ls'
@@ -14,6 +18,10 @@ brew "gh"
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Improved top (interactive process viewer)
+brew "htop"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Mac App Store command-line interface
 brew "mas"
 # Fast, highly customisable system info script
@@ -22,6 +30,8 @@ brew "neofetch"
 brew "nmap"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Wrapper to colorize and simplify ping's output
+brew "prettyping"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # Very fast implementation of tldr in Rust

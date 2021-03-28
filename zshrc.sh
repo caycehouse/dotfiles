@@ -1,58 +1,40 @@
-# Essential.
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# check if this is a login shell
+[ "$0" = "-zsh" ] && export LOGIN_ZSH=1
 
-# Package list.
-zplug "desyncr/auto-ls"
-zplug "woefe/wbase.zsh"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "peterhurford/up.zsh"
-zplug "dracula/zsh", as:theme
+# run zprofile if this is not a login shell
+[ -n "$LOGIN_ZSH" ] && source ~/.zprofile
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    zplug install
-fi
+# load shared shell configuration
+source ~/.shrc
 
-# Then, source plugins and add commands to $PATH
-zplug load
+# History file
+export HISTFILE=~/.zsh_history
 
-# Configure history
-HISTFILE="${HOME}/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt EXTENDED_HISTORY
+# Don't show duplicate history entires
+setopt hist_find_no_dups
 
-# Make Homebrew safer
-export HOMEBREW_CASK_OPTS=--require-sha
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_INSECURE_REDIRECT=1
+# Remove unnecessary blanks from history
+setopt hist_reduce_blanks
 
-# Keybindings for substring search plugin. Maps up and down arrows.
-bindkey -M main '^[[A' history-substring-search-up
-bindkey -M main '^[[B' history-substring-search-up
+# Share history between instances
+setopt share_history
 
-# Aliases
-alias ls='exa'
-alias l='exa -l --git'
-alias sail='bash vendor/bin/sail'
+# Don't hang up background jobs
+setopt no_hup
 
-# Alias hub over git
-eval "$(hub alias -s)"
+# use emacs bindings even with vim as EDITOR
+bindkey -e
 
-# Initialize fuck
-eval $(thefuck --alias)
+# fix backspace on Debian
+[ -n "$LINUX" ] && bindkey "^?" backward-delete-char
 
-# Add custom scripts to path
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+# fix delete key on macOS
+[ -n "$MACOS" ] && bindkey '\e[3~' delete-char
 
-if command -v neofetch >/dev/null
-then
-    neofetch
-fi
+# alternate mappings for Ctrl-U/V to search the history
+bindkey "^u" history-beginning-search-backward
+bindkey "^v" history-beginning-search-forward
+
+# enable autosuggestions
+ZSH_AUTOSUGGESTIONS="$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$ZSH_AUTOSUGGESTIONS" ] && source "$ZSH_AUTOSUGGESTIONS"
