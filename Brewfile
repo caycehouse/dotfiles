@@ -44,6 +44,8 @@ brew "thefuck"
 brew "tmux"
 # Upgrade all the things
 brew "topgrade"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
 # Prebuilt OpenJDK binaries
