@@ -42,6 +42,11 @@ alias mv="mv -iv"
 alias cp="cp -irv"
 alias sail="bash vendor/bin/sail"
 
+if quiet_which brew
+then
+  export HOMEBREW_PREFIX="$(brew --prefix)"
+fi
+
 if quiet_which diff-so-fancy
 then
   export GIT_PAGER='diff-so-fancy | less -+$LESS -RX'
