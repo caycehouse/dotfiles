@@ -15,6 +15,7 @@ After the initial strap:
 4. Enable Touch ID support for [sudo](https://www.imore.com/how-use-sudo-your-mac-touch-id).
 5. Change Finder view option to show ~/Library.
 6. Change MultiMC Folders.
+7. Install [DarkModeBuddy](https://github.com/insidegui/DarkModeBuddy).
 
 ## Status
 

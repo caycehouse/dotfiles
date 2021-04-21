@@ -15,13 +15,13 @@ call plug#begin()
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-eunuch'
+Plug 'macguirerintoul/night_owl_light.vim'
 
 call plug#end()
 
@@ -31,6 +31,14 @@ set relativenumber number
 " Update faster for git gutter
 set updatetime=100
 
-" Use Dracula theme
-color dracula
-let g:airline_theme='dracula'
+" Enable gui colors
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Enable Night Owl Theme
+syntax enable
+colorscheme night_owl_light
+
+" Enable Night Owl Theme for Airline
+let g:airline_theme='night_owl'

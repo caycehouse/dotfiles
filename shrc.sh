@@ -63,8 +63,12 @@ fi
 
 if quiet_which bat
 then
-  export BAT_THEME="Dracula"
-  alias cat="bat"
+    if [ "$MACOS" ]
+    then
+        alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+    else
+        alias cat="bat"
+    fi
 fi
 
 if quiet_which prettyping
