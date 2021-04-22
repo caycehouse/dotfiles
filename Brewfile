@@ -62,6 +62,8 @@ cask "font-fira-code"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
 # Microsoft Teams
 cask "microsoft-teams"
 # Multi MC
