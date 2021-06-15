@@ -48,26 +48,20 @@ brew "topgrade"
 brew "zsh-autosuggestions"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
-# Prebuilt OpenJDK binaries
-cask "adoptopenjdk8"
 # Application uninstaller
 cask "appcleaner"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
 # Voice and text chat software
 cask "discord"
+# Web browser
+cask "firefox"
 # Fira Code Font
 cask "font-fira-code"
-# Web browser
-cask "google-chrome"
-# Client for the Google Drive storage service
-cask "google-drive"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Microsoft Teams
 cask "microsoft-teams"
-# Multi MC
-cask "multimc"
 # Parsec
 cask "parsec"
 # Move and resize windows using keyboard shortcuts or snap areas
