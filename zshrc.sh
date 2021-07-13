@@ -41,3 +41,6 @@ if [ -f "$ZSH_AUTOSUGGESTIONS" ];
 then
   source "$ZSH_AUTOSUGGESTIONS"
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
