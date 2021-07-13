@@ -54,6 +54,8 @@ cask "appcleaner"
 cask "balenaetcher"
 # Voice and text chat software
 cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Web browser
 cask "firefox"
 # Fira Code Font
