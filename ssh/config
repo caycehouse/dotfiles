@@ -1,11 +1,14 @@
-Host twinkies
-	HostName 104.238.131.251
+Host bakery
+	HostName 45.76.2.82
 
 Host christcs
 	HostName christcs.nc.3cx.us
 
 Host cpc
 	HostName cpc.nc.3cx.us
+
+Host thefryer
+	HostName mc.thefryer.games
 
 Host *
 	StrictHostKeyChecking ask
