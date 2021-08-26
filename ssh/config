@@ -9,6 +9,7 @@ Host cpc
 
 Host thefryer
 	HostName mc.thefryer.games
+	User ccsadmin
 
 Host *
 	StrictHostKeyChecking ask
