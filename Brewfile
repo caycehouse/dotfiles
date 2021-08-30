@@ -16,8 +16,6 @@ brew "exa"
 brew "gh"
 # Distributed revision control system
 brew "git"
-# GNU Pretty Good Privacy (PGP) package
-brew "gnupg"
 # Improved top (interactive process viewer)
 brew "htop"
 # Lightweight and flexible command-line JSON processor
@@ -28,8 +26,6 @@ brew "mas"
 brew "neofetch"
 # Port scanning utility for large networks
 brew "nmap"
-# Pinentry for GPG on Mac
-brew "pinentry-mac"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
 # Add a public key to a remote machine's authorized_keys file
@@ -52,20 +48,28 @@ cask "1password-cli"
 cask "appcleaner"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Download and manage your addons and mods
+cask "curseforge"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Launcher for *Epic Games* games
+cask "epic-games"
 # Web browser
 cask "firefox"
 # Fira Code Font
 cask "font-fira-code"
+# GPG Suite (without GPG Mail)
+cask "gpg-suite-no-mail"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Microsoft Teams
 cask "microsoft-teams"
 # Parsec
 cask "parsec"
+# ProfileCreator
+cask "profilecreator"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Application for inspecting installer packages
