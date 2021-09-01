@@ -5,4 +5,3 @@ cd "$(dirname "$0")/.." || exit
 
 script/dock
 script/extract-onepassword-secrets
-script/terminal
