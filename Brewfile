@@ -76,8 +76,6 @@ cask "rectangle"
 cask "suspicious-package"
 # Native GUI tool for relational databases
 cask "tableplus"
-# File transfer application
-cask "transmit"
 # Open-source code editor
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
