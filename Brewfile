@@ -60,6 +60,8 @@ cask "epic-games"
 cask "firefox"
 # Fira Code Font
 cask "font-fira-code"
+# GOG Galaxy
+cask "gog-galaxy"
 # GPG Suite (without GPG Mail)
 cask "gpg-suite-no-mail"
 # Terminal emulator as alternative to Apple's Terminal app
