@@ -26,6 +26,8 @@ brew "mas"
 brew "neofetch"
 # Port scanning utility for large networks
 brew "nmap"
+# Platform built on V8 to build network applications
+brew "node"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
 # Add a public key to a remote machine's authorized_keys file
