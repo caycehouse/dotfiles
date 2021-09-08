@@ -76,6 +76,8 @@ cask "parsec"
 cask "profilecreator"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Video game digital distribution service
+cask "steam"
 # Application for inspecting installer packages
 cask "suspicious-package"
 # Native GUI tool for relational databases
