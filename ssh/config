@@ -1,6 +1,10 @@
 Host bakery
 	HostName 45.76.2.82
 
+Host twinkies
+	HostName twinkies.mobilemedics.com
+	User root
+
 Host christcs
 	HostName christcs.nc.3cx.us
 
@@ -21,3 +25,7 @@ Host *
 	AddKeysToAgent yes
 	ControlMaster auto
 	ControlPath /tmp/ssh-%r@%h:%p.socket
+
+Host au101-kcpc
+	HostName au101-kcpc
+	User housec16
