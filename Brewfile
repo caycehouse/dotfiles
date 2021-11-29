@@ -6,6 +6,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Server and cloud storage browser
+brew "cyberduck"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Tool for managing dock items
@@ -96,6 +98,5 @@ mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "The Unarchiver", id: 425424353
-mas "Transmit 5", id: 1436522307
 mas "Xcode", id: 497799835
 mas "Wipr", id: 1320666476
