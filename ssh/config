@@ -1,19 +1,18 @@
-Host bakery
-	HostName 45.76.2.82
-
 Host twinkies
 	HostName twinkies.house.email
-	User root
+	User caycehouse
 
 Host christcs
 	HostName christcs.nc.3cx.us
+	User caycehouse
 
 Host cpc
 	HostName cpc.nc.3cx.us
+	User caycehouse
 
-Host thefryer
-	HostName mc.thefryer.games
-	User ccsadmin
+Host cupcakes
+	HostName cupcakes.house.email
+	User caycehouse
 
 Host *
 	StrictHostKeyChecking ask
@@ -25,7 +24,3 @@ Host *
 	AddKeysToAgent yes
 	ControlMaster auto
 	ControlPath /tmp/ssh-%r@%h:%p.socket
-
-Host au101-kcpc
-	HostName au101-kcpc
-	User housec16
