@@ -54,6 +54,8 @@ cask "appcleaner"
 cask "balenaetcher"
 # Download and manage your addons and mods
 cask "curseforge"
+# API documentation browser and code snippet manager
+cask "dash"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
@@ -76,8 +78,8 @@ cask "microsoft-teams"
 cask "parsec"
 # ProfileCreator
 cask "profilecreator"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Video game digital distribution service
 cask "steam"
 # Application for inspecting installer packages
