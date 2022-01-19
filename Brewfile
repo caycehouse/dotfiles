@@ -88,6 +88,8 @@ cask "suspicious-package"
 cask "tableplus"
 # Open-source code editor
 cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "webex"
 mas "1Password 7", id: 1333542190
 mas "Apple Remote Desktop", id: 409907375
 mas "Balance Lock", id: 1019371109
