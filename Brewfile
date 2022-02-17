@@ -50,6 +50,8 @@ brew "tmux"
 brew "topgrade"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Password manager that keeps all passwords secure behind one password
+cask "1password-beta"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
 # View, print, and comment on PDF documents
@@ -77,6 +79,8 @@ cask "gpg-suite-no-mail"
 cask "iterm2"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
+# GameStream client
+cask "moonlight"
 # Minecraft launcher
 cask "multimc"
 cask "parsec"
@@ -88,6 +92,8 @@ cask "raycast"
 cask "sidequest"
 # Automatically checks computer's security
 cask "silentknight"
+# Team communication and collaboration software
+cask "slack"
 # Video game digital distribution service
 cask "steam"
 # Application for inspecting installer packages
@@ -102,7 +108,7 @@ cask "vlc"
 cask "webex"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "1Password 7", id: 1333542190
+mas "Apple Configurator 2", id: 1037126344
 mas "Apple Remote Desktop", id: 409907375
 mas "Balance Lock", id: 1019371109
 mas "Keynote", id: 409183694
@@ -115,5 +121,6 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
 mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
 mas "Wipr", id: 1320666476
+mas "Xcode", id: 497799835
+mas "XDebugToggle", id: 1437227804
