@@ -37,12 +37,10 @@ bindkey "^v" history-beginning-search-forward
 
 # enable autosuggestions
 ZSH_AUTOSUGGESTIONS="$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-if [ -f "$ZSH_AUTOSUGGESTIONS" ];
-then
+if [ -f "$ZSH_AUTOSUGGESTIONS" ]; then
   source "$ZSH_AUTOSUGGESTIONS"
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 eval $(thefuck --alias)

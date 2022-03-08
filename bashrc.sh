@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # check if this is a login shell
 [ "$0" = "-bash" ] && export LOGIN_BASH=1
 

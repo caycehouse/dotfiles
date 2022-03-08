@@ -1,41 +1,36 @@
 #!/bin/sh
 # Install all dotfiles into the home directory
 
-DOTFILESDIRREL=$(dirname $0)
-cd $DOTFILESDIRREL/..
+DOTFILESDIRREL=$(dirname "$0")
+cd "$DOTFILESDIRREL/.." || exit
 DOTFILESDIR=$(pwd -P)
 
-[ $(uname -s) = "Darwin" ] && export MACOS=1 && export UNIX=1
-[ $(uname -s) = "Linux" ] && export LINUX=1 && export UNIX=1
+[ "$(uname -s)" = "Darwin" ] && export MACOS=1 && export UNIX=1
+[ "$(uname -s)" = "Linux" ] && export LINUX=1 && export UNIX=1
 uname -s | grep -q "_NT-" && export WINDOWS=1
 
-if [ $MACOS ]
-then
+if [ $MACOS ]; then
   TOPGRADE="$HOME/.config"
-elif [ $LINUX ]
-then
+elif [ $LINUX ]; then
   TOPGRADE="$HOME/.config"
-elif [ $WINDOWS ]
-then
+elif [ $WINDOWS ]; then
   TOPGRADE="$APPDATA"
 fi
 
 for DOTFILE in *; do
   HOMEFILE="$HOME/.$DOTFILE"
-  [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
+  [ -d "$DOTFILE" ] && DOTFILE="$DOTFILE/"
   DIRFILE="$DOTFILESDIR/$DOTFILE"
 
-  echo $DOTFILE | egrep -q '(^script/$|\.txt$|\.md$)' && continue
-  echo $DOTFILE | grep -q 'topgrade' &&
-      HOMEFILE="$TOPGRADE/topgrade.toml"
+  echo "$DOTFILE" | grep -Eq '(^script/$|\.txt$|\.md$)' && continue
+  echo "$DOTFILE" | grep -q 'topgrade' &&
+    HOMEFILE="$TOPGRADE/topgrade.toml"
 
-  echo $DOTFILE | grep -q '\.sh' &&
-       HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.sh//')"
+  echo "$DOTFILE" | grep -q '\.sh' &&
+    HOMEFILE="$HOME/.$(echo "$DOTFILE" | sed -e 's/\.sh//')"
 
-  if [ $UNIX ]
-  then
-    if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]
-    then
+  if [ $UNIX ]; then
+    if [ -L "$HOMEFILE" ] && ! [ -d "$DOTFILE" ]; then
       ln -sfv "$DIRFILE" "$HOMEFILE"
     else
       rm -rv "$HOMEFILE"

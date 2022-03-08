@@ -42,55 +42,45 @@ alias mv="mv -iv"
 alias cp="cp -irv"
 alias sail="bash vendor/bin/sail"
 
-if quiet_which brew
-then
+if quiet_which brew; then
   export HOMEBREW_PREFIX="$(brew --prefix)"
 fi
 
-if quiet_which diff-so-fancy
-then
+if quiet_which diff-so-fancy; then
   export GIT_PAGER='diff-so-fancy | less -+$LESS -RX'
 else
   export GIT_PAGER='less -+$LESS -RX'
 fi
 
-if quiet_which exa
-then
+if quiet_which exa; then
   alias ls="exa --classify --group --git"
 else
   alias ls="ls -F"
 fi
 
-if quiet_which bat
-then
-    if [ "$MACOS" ]
-    then
-        alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
-    else
-        alias cat="bat"
-    fi
+if quiet_which bat; then
+  if [ "$MACOS" ]; then
+    alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+  else
+    alias cat="bat"
+  fi
 fi
 
-if quiet_which prettyping
-then
+if quiet_which prettyping; then
   alias ping="prettyping --nolegend"
 fi
 
-if quiet_which htop
-then
+if quiet_which htop; then
   alias top="sudo htop"
 fi
 
 # Set up editor
-if quiet_which code
-then
+if quiet_which code; then
   export EDITOR="code"
   export GIT_EDITOR="$EDITOR -w"
-elif quiet_which vim
-then
+elif quiet_which vim; then
   export EDITOR="vim"
-elif quiet_which vi
-then
+elif quiet_which vi; then
   export EDITOR="vi"
 fi
 alias e="$EDITOR"
