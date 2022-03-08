@@ -32,6 +32,8 @@ brew "node"
 brew "openjdk"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Add a public key to a remote machine's authorized_keys file
@@ -64,6 +66,8 @@ cask "balenaetcher"
 cask "cyberduck"
 # API documentation browser and code snippet manager
 cask "dash"
+# Utilities designed to make common development tasks easier
+cask "devtoys"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
@@ -77,13 +81,21 @@ cask "gog-galaxy"
 cask "gpg-suite-no-mail"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# File archiver
+cask "keka"
+# Helper application for the Keka file archiver
+cask "kekaexternalhelper"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
 # GameStream client
 cask "moonlight"
 # Minecraft launcher
 cask "multimc"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 cask "parsec"
+# Collaboration platform for API development
+cask "postman"
 # Create standard or customized configuration profiles
 cask "profilecreator"
 # Control your tools with a few keystrokes
@@ -104,10 +116,13 @@ cask "tableplus"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Create, manage, and run virtual machines
+cask "vmware-fusion"
 # Video communication and virtual meeting platform
 cask "webex"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
 mas "Apple Configurator 2", id: 1037126344
 mas "Apple Remote Desktop", id: 409907375
 mas "Balance Lock", id: 1019371109
@@ -120,6 +135,7 @@ mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
+mas "Steam Link", id: 1246969117
 mas "The Unarchiver", id: 425424353
 mas "Wipr", id: 1320666476
 mas "Xcode", id: 497799835
