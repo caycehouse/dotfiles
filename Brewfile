@@ -18,6 +18,8 @@ brew "gh"
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
+brew "iperf3"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Mac App Store command-line interface
@@ -53,7 +55,7 @@ brew "topgrade"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Password manager that keeps all passwords secure behind one password
-cask "1password-beta"
+cask "1password"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
 # View, print, and comment on PDF documents
@@ -74,7 +76,11 @@ cask "discord"
 cask "docker"
 # Launcher for *Epic Games* games
 cask "epic-games"
+# Reimagine your terminal
+cask "fig"
 cask "font-fira-code"
+# Desktop client for GitHub repositories
+cask "github"
 # Game client
 cask "gog-galaxy"
 # Tools to protect your files
@@ -93,13 +99,19 @@ cask "moonlight"
 cask "multimc"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
+# Open-source re-implementation of RollerCoaster Tycoon 2
+cask "openrct2"
 cask "parsec"
 # Collaboration platform for API development
 cask "postman"
 # Create standard or customized configuration profiles
 cask "profilecreator"
-# Control your tools with a few keystrokes
-cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Client for Old School RuneScape
+cask "runelite"
 # Virtual reality content platform
 cask "sidequest"
 # Automatically checks computer's security
@@ -108,6 +120,8 @@ cask "silentknight"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
+# Convert 3D models into G-code instructions or PNG layers
+cask "superslicer"
 # Application for inspecting installer packages
 cask "suspicious-package"
 # Native GUI tool for relational databases
@@ -123,9 +137,12 @@ cask "webex"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
-mas "Apple Configurator 2", id: 1037126344
+mas "Apple Configurator", id: 1037126344
 mas "Apple Remote Desktop", id: 409907375
 mas "Balance Lock", id: 1019371109
+mas "ColorSlurp", id: 1287239339
+mas "Developer", id: 640199958
+mas "GoodNotes", id: 1444383602
 mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
@@ -135,7 +152,7 @@ mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
-mas "Steam Link", id: 1246969117
+mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "Wipr", id: 1320666476
 mas "Xcode", id: 497799835

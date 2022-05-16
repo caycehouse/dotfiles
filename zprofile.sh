@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zprofile.pre.zsh"
+
 # load shared shell configuration
 source ~/.shprofile
 
@@ -48,3 +51,6 @@ export RPROMPT='%{$fg_bold[red]%}$(git_branch)%b[%{$fg_bold[blue]%}%~%b%f]'
 
 # more macOS/Bash-like word jumps
 export WORDCHARS=""
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zprofile.post.zsh"

@@ -2,7 +2,7 @@
 	# Name used in commit messages.
 	name = Cayce House
 	# Email used in commit messages.
-	email = cayce@house.email
+	email = cayce@caycehouse.com
 [github]
 	# GitHub username for command-line tools.
 	user = caycehouse
