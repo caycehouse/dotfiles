@@ -1,6 +1,10 @@
-Host cupcakes
-	HostName cupcakes.house.email
-	User caycehouse
+Host contour
+	HostName 172.20.16.88
+	User sodmio
+
+Host contour2
+	HostName 150.216.132.64
+	User sodmio
 
 Host *
 	StrictHostKeyChecking ask
