@@ -1,3 +1,27 @@
+Host bakery
+	HostName bakery
+	User caycehouse
+
+Host oci1
+	HostName oci1
+	User caycehouse
+
+Host oci2
+	HostName oci2
+	User caycehouse
+
+Host klipper
+	HostName klipper
+	User caycehouse
+
+Host wiki
+	HostName wiki-caycehouse-com
+	User caycehouse
+
+Host rss
+	HostName rss-caycehouse-com
+	User caycehouse
+
 Host contour
 	HostName 172.20.16.88
 	User sodmio
