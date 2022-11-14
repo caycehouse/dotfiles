@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # check if this is a login shell
 [ "$0" = "-zsh" ] && export LOGIN_ZSH=1
 
@@ -47,6 +44,3 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval $(thefuck --alias)
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"

@@ -94,8 +94,6 @@ cask "docker"
 cask "epic-games"
 # Minecraft mod downloader and manager
 cask "feed-the-beast"
-# Reimagine your terminal
-cask "fig"
 # Free monospaced font with programming ligatures
 cask "font-fira-code"
 # Desktop client for GitHub repositories

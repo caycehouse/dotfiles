@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/bash_profile.pre.bash"
-
 # shellcheck shell=bash
 
 # load shared shell configuration
@@ -60,6 +57,3 @@ if [ -n "$INTERACTIVE_BASH" ]; then
   bind '"^u" history-search-backward'
   bind '"^v" history-search-forward'
 fi
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/bash_profile.post.bash"

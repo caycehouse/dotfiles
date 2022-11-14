@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/bashrc.pre.bash"
-
 # shellcheck shell=bash
 
 # check if this is a login shell
@@ -17,6 +14,3 @@ export HISTFILE="$HOME/.bash_history"
 export HISTCONTROL="ignoredups"
 export PROMPT_COMMAND="history -a"
 export HISTIGNORE="&:ls:[bf]g:exit"
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/bashrc.post.bash"
