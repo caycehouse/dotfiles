@@ -2,24 +2,32 @@ Host bakery
 	HostName bakery
 	User caycehouse
 
-Host oci1
-	HostName oci1
+Host houseco-1
+	HostName houseco-1
 	User caycehouse
 
-Host oci2
-	HostName oci2
+Host houseco-2
+	HostName houseco-2
+	User caycehouse
+
+Host houseco-3
+	HostName houseco-3
+	User caycehouse
+
+Host cleverhouse-1
+	HostName cleverhouse-1
+	User caycehouse
+
+Host cleverhouse-2
+	HostName cleverhouse-2
+	User caycehouse
+
+Host cleverhouse-3
+	HostName cleverhouse-3
 	User caycehouse
 
 Host klipper
 	HostName klipper
-	User caycehouse
-
-Host wiki
-	HostName wiki-caycehouse-com
-	User caycehouse
-
-Host rss
-	HostName rss-caycehouse-com
 	User caycehouse
 
 Host contour
@@ -31,11 +39,15 @@ Host contour2
 	User sodmio
 
 Host *
-	StrictHostKeyChecking ask
-	VerifyHostKeyDNS ask
-	NoHostAuthenticationForLocalhost yes
-	UseKeychain yes
-	AddKeysToAgent yes
+	# Always use SSH2.
+	Protocol 2
+
+	# Use a shared channel for all sessions to the same host,
+	# instead of always opening a new one. This leads to much
+	# quicker connection times.
 	ControlMaster auto
 	ControlPath /tmp/ssh-%r@%h:%p.socket
+	ControlPersist 1800
+	
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
