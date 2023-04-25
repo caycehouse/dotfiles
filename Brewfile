@@ -1,15 +1,14 @@
+tap "caycehouse/personal", "https://github.com/caycehouse/homebrew-personal.git"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-# Automate deployment, configuration, and upgrading
-brew "ansible"
-# Checks ansible playbooks for practices and behaviour
-brew "ansible-lint"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Get/set bluetooth power and discoverable state
+brew "blueutil"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Tool for managing dock items
@@ -24,10 +23,14 @@ brew "gh"
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
+# Calculate various network masks, etc. from a given IP address
+brew "ipcalc"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Mac App Store command-line interface
 brew "mas"
 # Fast, highly customisable system info script
@@ -40,10 +43,16 @@ brew "node"
 brew "zstd"
 # Development kit for the Java programming language
 brew "openjdk"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Rsync for cloud storage
+brew "rclone"
+# Fast, efficient and secure backup program
+brew "restic"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Add a public key to a remote machine's authorized_keys file
@@ -62,6 +71,12 @@ brew "tmux"
 brew "topgrade"
 # Internet file retriever
 brew "wget"
+# Linter for YAML files
+brew "yamllint", link: false
+# JavaScript package manager
+brew "yarn"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Password manager that keeps all passwords secure behind one password
@@ -70,6 +85,8 @@ cask "1password"
 cask "1password-cli"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
+# Fixes sound quality drops when using AirPods
+cask "airpods-sound-quality-fixer"
 # iOS App Store alternative
 cask "altserver"
 # Application uninstaller
@@ -156,6 +173,8 @@ cask "superslicer"
 cask "suspicious-package"
 # Native GUI tool for relational databases
 cask "tableplus"
+# 3D printer and slicing GUI
+cask "ultimaker-cura"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
@@ -171,6 +190,7 @@ mas "Apple Configurator", id: 1037126344
 mas "Balance Lock", id: 1019371109
 mas "ColorSlurp", id: 1287239339
 mas "Developer", id: 640199958
+mas "Discovery", id: 1381004916
 mas "GoodNotes", id: 1444383602
 mas "HP Smart", id: 1474276998
 mas "Keynote", id: 409183694
@@ -186,5 +206,6 @@ mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
 mas "Steam Link", id: 1246969117
 mas "Tailscale", id: 1475387142
+mas "Termius", id: 1176074088
 mas "Wipr", id: 1320666476
 mas "Xcode", id: 497799835
