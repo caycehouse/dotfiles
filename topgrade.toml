@@ -1,8 +1,0 @@
-# Cleanup temporary or old files
-cleanup = true
-
-[git]
-# Additional git repositories to pull
-repos = [
-    "~/src/*/"
-]

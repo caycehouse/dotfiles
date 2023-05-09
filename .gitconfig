@@ -3,6 +3,8 @@
 	name = Cayce House
 	# Email used in commit messages.
 	email = cayce@caycehouse.com
+	# Signing Key.
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1fE9oGJZyOliB/NeqUaz+QeYrwam+gcb+ZLrFRNp/l
 [github]
 	# GitHub username for command-line tools.
 	user = caycehouse
@@ -41,7 +43,7 @@
 	# Output unicode characters (e.g. emoji).
 	quotepath = on
 [help]
-  # Autocorrect mistyped commands.
+	# Autocorrect mistyped commands.
 	autocorrect = 1
 [alias]
 	## 'New' Commands
@@ -209,4 +211,4 @@
 	# TODO: re-enable when more widely supported by Git versions
 	# date = human
 [gpg]
-	program = /usr/local/bin/gpg
+	format = ssh

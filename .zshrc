@@ -1,12 +1,6 @@
 # check if this is a login shell
 [ "$0" = "-zsh" ] && export LOGIN_ZSH=1
 
-# run zprofile if this is not a login shell
-[ -n "$LOGIN_ZSH" ] && source ~/.zprofile
-
-# load shared shell configuration
-source ~/.shrc
-
 # History file
 export HISTFILE=~/.zsh_history
 
@@ -44,3 +38,5 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval $(thefuck --alias)
+
+SSH_AUTH_SOCK=~/.1password/agent.sock
