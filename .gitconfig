@@ -17,6 +17,8 @@
 [push]
 	# Push to the set upstream branch being tracked by default.
 	default = simple
+	# Automatically setup upstream tracking for new branches.
+	autoSetupRemote = true
 [pull]
 	# Default to rebasing on pulls
 	rebase = true
