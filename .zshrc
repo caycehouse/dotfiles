@@ -52,5 +52,8 @@ source $ZSH/oh-my-zsh.sh
 # Set default EDITOR to vim.
 export EDITOR="vim"
 
+# Add home local bin to path.
+export PATH=$HOME/.local/bin:$PATH
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
