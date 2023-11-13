@@ -49,6 +49,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+alias cat="bat"
+alias ping="prettyping --nolegend"
+alias top="sudo htop"
 
 # Set default EDITOR to vim.
 export EDITOR="vim"
