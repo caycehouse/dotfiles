@@ -1,0 +1,28 @@
+LogLevel ERROR
+
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h-%p
+  ControlPersist 600
+
+Host 192.168.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+Host 172.16.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+Host 10.*.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
+Host cupcakes
+  HostName cupcakes
+  User caycehouse
+
+Host hostess
+  HostName hostess
+  User caycehouse
+
+Host octopi
+  HostName octopi
+  User caycehouse
