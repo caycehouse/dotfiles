@@ -35,7 +35,7 @@
 	enabled = true
 [core]
 	# Exclude everything this file. Used for general exclusions.
-	excludesfile = ~/.gitignore
+  excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
 	# Set attributes on files. Used for general diff improvements.
 	attributesfile = ~/.gitattributes
 	# Don't prompt for commit messages for merge commits.
