@@ -1,0 +1,25 @@
+Host bakery
+	HostName bakery
+	User caycehouse
+
+Host octopi
+	HostName octopi
+	User caycehouse
+
+Host 192.168.4.2
+	   IdentitiesOnly yes
+		 IdentityFile ~/.ssh/private_key
+		 KexAlgorithms +diffie-hellman-group1-sha1
+		 PubkeyAcceptedKeyTypes=+ssh-rsa
+		 HostKeyAlgorithms=+ssh-rsa
+
+Host *
+	# Always use SSH2.
+	Protocol 2
+
+	# Use a shared channel for all sessions to the same host,
+	# instead of always opening a new one. This leads to much
+	# quicker connection times.
+	ControlMaster auto
+	ControlPath /tmp/ssh-%r@%h:%p.socket
+	ControlPersist 1800
