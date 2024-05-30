@@ -2,8 +2,9 @@ LogLevel ERROR
 
 Host *
   ControlMaster auto
-  ControlPath ~/.ssh/sockets/%r@%h-%p
+  ControlPath {{ .chezmoi.homeDir }}/.ssh/sockets/%r@%h-%p
   ControlPersist 600
+  IdentityAgent {{ .chezmoi.homeDir }}/.1password/agent.sock
 
 Host 192.168.*.*
   StrictHostKeyChecking no
