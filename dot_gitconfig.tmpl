@@ -50,6 +50,9 @@
 [core]
   # Exclude everything this file. Used for general exclusions.
   excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+{{ if eq .chezmoi.os "windows" }}
+  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ end -}}
 [diff "ansible-vault"]
   cachetextconv = false
   textconv = ansible-vault view
@@ -67,11 +70,14 @@
   signOff = true
 [gpg]
   format = ssh
-{{ if ne .chezmoi.os "windows" }}
 [gpg "ssh"]
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  program = "/mnt/c/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{   else }}
   program = "/opt/1Password/op-ssh-sign"
+{{   end -}}
 {{ else }}
-[gpg "ssh"]
   program = "C:/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
 {{ end -}}
 [init]
