@@ -41,6 +41,14 @@ packages:
       # Graphics drivers
       - akmod-nvidia
       - xorg-x11-drv-nvidia-cuda
+
+      # Gnome Extensions
+      - gnome-shell-extension-appindicator
+      - gnome-shell-extension-blur-my-shell
+      - gnome-shell-extension-caffeine
+      - gnome-shell-extension-drive-menu
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-user-theme
     flatpak:
       - com.discordapp.Discord # Discord
       - com.github.tchx84.Flatseal # Flatseal
