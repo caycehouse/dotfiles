@@ -1,0 +1,21 @@
+if status is-interactive
+    {{- if lookPath "/home/linuxbrew/.linuxbrew/bin/brew" }}
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    {{- end }}
+end
+
+if type -q bat
+    alias cat {{ lookPath "bat" }}
+end
+
+if type -q htop
+    alias top {{ lookPath "htop" }}
+end
+
+if type -q prettyping
+    alias ping "{{ lookPath "prettyping" }} --nolegend"
+end
+
+set -gx EDITOR vim
+set -gx VISUAL "code --wait"
+

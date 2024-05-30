@@ -38,7 +38,7 @@
   ss = commit --message snapshot --no-gpg-sign
   su = submodule update
   wd = diff --patience --word-diff
-  yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
+  yolo = !git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
 [apply]
   # Cleanup whitespace by default when apply patches.
   whitespace = fix
@@ -48,7 +48,6 @@
   # Show the diff as a comment in the commit message template.
   verbose = true
 [core]
-  editor = vim
   # Exclude everything this file. Used for general exclusions.
   excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
 [diff "ansible-vault"]
