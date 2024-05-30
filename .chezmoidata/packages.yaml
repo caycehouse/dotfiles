@@ -3,11 +3,16 @@ packages:
     dnf:
       # CLI Applications
       # - ansible # Installed via Pip.
+      - 1password-cli
+      - age
       - bat
+      - direnv
       - fedora-workstation-repositories
       - fira-code-fonts
+      - fish
       - gh
-      - google-chrome-stable
+      - go-task
+      - helm
       - htop
       - info
       - lsd
@@ -18,14 +23,20 @@ packages:
       - tealdeer
       - telnet
       - vim
+      - xpipe
       - zoxide
 
       # GUI Applications
       - 1password
       - code
+      - dbeaver-ce
+      - docker-desktop
       - gnome-tweaks
+      - google-chrome-stable
+      - lutris
       - https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm
       - steam
+      - virt-manager
 
       # Graphics drivers
       - akmod-nvidia
