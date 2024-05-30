@@ -35,7 +35,6 @@ packages:
       - google-chrome-stable
       - lens
       - lutris
-      - https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm
       - steam
       - virt-manager
 
