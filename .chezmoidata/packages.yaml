@@ -33,6 +33,7 @@ packages:
       - docker-desktop
       - gnome-tweaks
       - google-chrome-stable
+      - lens
       - lutris
       - https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm
       - steam
@@ -41,3 +42,18 @@ packages:
       # Graphics drivers
       - akmod-nvidia
       - xorg-x11-drv-nvidia-cuda
+    flatpak:
+      - com.discordapp.Discord # Discord
+      - com.github.tchx84.Flatseal # Flatseal
+      - com.mattjakeman.ExtensionManager # Extension Manager
+      - com.parsecgaming.parsec # Parsec
+      - io.github.shiftey.Desktop # Github Desktop
+      - org.gnome.Extensions # Gnome Extensions
+      - us.zoom.Zoom # Zoom
+    repo:
+      - https://raw.githubusercontent.com/caycehouse/dotfiles/main/repos/1password.repo
+      - https://download.docker.com/linux/fedora/docker-ce.repo
+      - https://raw.githubusercontent.com/caycehouse/dotfiles/main/repos/google-chrome.repo
+      - https://downloads.k8slens.dev/rpm/lens.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://raw.githubusercontent.com/caycehouse/dotfiles/main/repos/vscode.repo

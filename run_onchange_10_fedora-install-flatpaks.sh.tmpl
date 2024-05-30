@@ -1,0 +1,6 @@
+{{ if eq .osid "linux-fedora" -}}
+#!/bin/bash
+
+flatpak install {{ .packages.fedora.flatpak | join " " }}
+
+{{ end -}}
