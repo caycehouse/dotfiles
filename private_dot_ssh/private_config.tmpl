@@ -1,10 +1,12 @@
 LogLevel ERROR
 
+{{ if ne .chezmoi.os "windows" }}
 Host *
   ControlMaster auto
   ControlPath {{ .chezmoi.homeDir }}/.ssh/sockets/%r@%h-%p
   ControlPersist 600
   IdentityAgent {{ .chezmoi.homeDir }}/.1password/agent.sock
+{{ end -}}
 
 Host 192.168.*.*
   StrictHostKeyChecking no
