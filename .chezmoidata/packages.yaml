@@ -1,0 +1,32 @@
+packages:
+  fedora:
+    dnf:
+      # CLI Applications
+      # - ansible # Installed via Pip.
+      - bat
+      - fedora-workstation-repositories
+      - fira-code-fonts
+      - gh
+      - google-chrome-stable
+      - htop
+      - info
+      - lsd
+      - neofetch
+      - prettyping
+      - shellcheck
+      - tailscale
+      - tealdeer
+      - telnet
+      - vim
+      - zoxide
+
+      # GUI Applications
+      - 1password
+      - code
+      - gnome-tweaks
+      - https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm
+      - steam
+
+      # Graphics drivers
+      - akmod-nvidia
+      - xorg-x11-drv-nvidia-cuda
