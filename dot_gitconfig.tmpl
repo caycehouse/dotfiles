@@ -67,8 +67,13 @@
   signOff = true
 [gpg]
   format = ssh
+{{ if ne .chezmoi.os "windows" }}
 [gpg "ssh"]
   program = "/opt/1Password/op-ssh-sign"
+{{ else }}
+[gpg "ssh"]
+  program = "C:/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{ end -}}
 [init]
   defaultBranch = main
 [log]
