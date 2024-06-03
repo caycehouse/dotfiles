@@ -5,7 +5,7 @@ My dotfiles managed by chezmoi
 ## first time set up
 
 ```sh
-chezmoi init git@github.com:caycehouse/dotfiles.git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/caycehouse/dotfiles/HEAD/install.sh)"
 ```
 ## gnome extensions to install:
 https://nightthemeswitcher.romainvigier.fr/

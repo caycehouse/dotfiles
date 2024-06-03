@@ -63,3 +63,35 @@ packages:
       - https://downloads.k8slens.dev/rpm/lens.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://raw.githubusercontent.com/caycehouse/dotfiles/main/repos/vscode.repo
+  wslUbuntu:
+    apt:
+      - build-essential
+      - gh
+      - git
+      - neofetch
+      - shellcheck
+      - ssh-import-id
+      - unzip
+    brew:
+      - age
+      - ansible
+      - ansible-lint
+      - cloudflared
+      - direnv
+      - flux
+      - go-task
+      - helm
+      - helmfile
+      - jq
+      - k9s
+      - kubeconform
+      - kubernetes-cli
+      - kustomize
+      - sops
+      - starship
+      - talhelper
+      - talosctl
+      - topgrade
+      - yamllint
+      - youtube-dl
+      - yq
