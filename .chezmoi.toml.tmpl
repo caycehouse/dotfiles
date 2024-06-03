@@ -3,5 +3,8 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{ $codename := promptStringOnce . "codename" "What is this machine's codename" }}
+
 [data]
+    codename = {{ $codename | quote }}
     osid = {{ $osid | quote }}

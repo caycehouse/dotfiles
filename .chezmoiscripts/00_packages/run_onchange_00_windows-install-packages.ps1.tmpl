@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "windows" -}}
+
+$importFile = "$env:CHEZMOI_SOURCE_DIR\.winget\{{lower .codename}}.json"
+
+if (Test-Path $importFile) {
+  winget import --import-file $importFile
+}
+
+{{- end -}}
