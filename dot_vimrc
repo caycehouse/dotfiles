@@ -13,15 +13,29 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Install plug plugins
 call plug#begin()
 
-Plug 'editorconfig/editorconfig-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Commands
+Plug 'tpope/vim-repeat'
+
+" Language
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
+
+" Integrations
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-eunuch'
-Plug 'macguirerintoul/night_owl_light.vim'
+Plug 'tpope/vim-fugitive'
+
+" Interface
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Other
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -36,9 +50,9 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Enable Night Owl Theme
+" Enable Dracula Theme
 syntax enable
-colorscheme night_owl_light
+colorscheme dracula
 
-" Enable Night Owl Theme for Airline
-let g:airline_theme='night_owl'
+" Enable Dracula Theme for Airline
+let g:airline_theme='dracula'

@@ -1,2 +1,12 @@
 [misc]
+# Just update, don't prompt every step.
+assume_yes = true
+
+# Cleanup temporary or old files.
+cleanup = true
+
+# Don't automatically upgrade container and helm versions.
 disable = ["containers", "helm"]
+
+# Some vim plugins don't play nice.
+ignore_failures = ["vim"]
