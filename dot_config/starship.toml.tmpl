@@ -1,54 +1,51 @@
+# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Inserts a blank line between shell prompts
 add_newline = true
 
-format = """\
-  $username\
-  $directory\
-  $kubernetes\
-  $git_branch\
-  $git_commit\
-  $git_state\
-  $git_status\
-  $character\
-  """
-
 [character]
-success_symbol = "\n[❯](bold green)"
-error_symbol = "\n[✖](bold red)"
+error_symbol = "[λ](bold #ff5555)"
+success_symbol = "[λ](bold #50fa7b)"
 
 [cmd_duration]
-min_time = 500
-
-[username]
-disabled = false
-show_always = false
+style = "bold #f1fa8c"
 
 [directory]
-disabled = false
-truncation_length = 8
-truncate_to_repo = true
-read_only = " "
 home_symbol = " "
+read_only = " 󰌾"
+style = "bold #50fa7b"
+truncation_length = 8
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+style = "bold #ff79c6"
+symbol = " "
+
+[git_commit]
+only_detached = false
+style = "bold #6272A4"
+tag_symbol = " "
+
+[git_status]
+style = "bold #ff5555"
+
+[hostname]
+style = "bold #bd93f9"
 
 [kubernetes]
 disabled = false
 symbol = "󱃾 "
-format = "[\\[$symbol$context \\($namespace\\)\\]]($style) "
-style  = "bold bright-green"
+format = '\[[$symbol$context( \($namespace\))]($style)\] '
+style  = "bold #8BE9FD"
 
 [python]
-disabled = false
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-symbol = " "
+style = 'bold #F1FA8C'
+symbol = " "
 
-[git_branch]
-disabled = false
-symbol = " "
-
-[git_commit]
-disabled = false
-commit_hash_length = 8
-only_detached = false
-style = "grey"
-tag_symbol = " "
+[username]
+format = "[$user]($style) on "
+style_user = "bold #8be9fd"
