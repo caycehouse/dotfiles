@@ -4,48 +4,60 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-[character]
-error_symbol = "[λ](bold #ff5555)"
-success_symbol = "[λ](bold #50fa7b)"
-
-[cmd_duration]
-style = "bold #f1fa8c"
+# Set color palette to catppuccin latte
+palette = "catppuccin_latte"
 
 [directory]
 home_symbol = " "
 read_only = " 󰌾"
-style = "bold #50fa7b"
 truncation_length = 8
 
 [docker_context]
 symbol = " "
 
 [git_branch]
-style = "bold #ff79c6"
 symbol = " "
 
 [git_commit]
 only_detached = false
-style = "bold #6272A4"
 tag_symbol = " "
-
-[git_status]
-style = "bold #ff5555"
-
-[hostname]
-style = "bold #bd93f9"
 
 [kubernetes]
 disabled = false
 symbol = "󱃾 "
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
-style  = "bold #8BE9FD"
+
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
 
 [python]
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-style = 'bold #F1FA8C'
 symbol = " "
 
 [username]
 format = "[$user]($style) on "
-style_user = "bold #8be9fd"
