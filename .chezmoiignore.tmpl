@@ -1,0 +1,11 @@
+.vscode/
+README.md
+repos/
+
+{{ if ne .chezmoi.os "linux" -}}
+.config/autostart/
+{{ end -}}
+
+{{ if (and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin")) -}}
+.config/fish/
+{{ end -}}
