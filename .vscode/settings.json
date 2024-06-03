@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.sh.tmpl": "jinja-shell",
+    "*.toml.tmpl": "jinja-toml",
+    "*.yaml.tmpl": "jinja-yaml",
+    "*config*.tmpl": "jinja-properties",
+  },
+}
