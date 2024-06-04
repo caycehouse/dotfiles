@@ -1,0 +1,12 @@
+{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
+#!{{ lookPath "bash" }}
+
+# all Brewfile hash: {{ include ".brew/all.Brewfile" | sha256sum }}
+# machine Brewfile hash: {{ include (printf ".brew/%s.Brewfile" (lower .codename)) | sha256sum }}
+# Brewfile hash: {{ include "Brewfile.tmpl" | sha256sum }}
+
+if [ -f "{{ .chezmoi.homeDir }}/Brewfile" ]; then
+  brew bundle install
+fi
+
+{{ end -}}

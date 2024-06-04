@@ -1,5 +1,6 @@
 {{- if eq .chezmoi.os "windows" -}}
 
+# winget.json hash: {{ include (printf ".winget/%s.json" (lower .codename)) | sha256sum }}
 $importFile = "$env:CHEZMOI_SOURCE_DIR\.winget\{{lower .codename}}.json"
 
 if (Test-Path $importFile) {

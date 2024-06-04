@@ -1,0 +1,2 @@
+{{ include ".brew/all.Brewfile" }}
+{{ include (printf ".brew/%s.Brewfile" (lower .codename)) }}

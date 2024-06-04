@@ -1,0 +1,2 @@
+# all.Brewfile
+brew "topgrade"
