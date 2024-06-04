@@ -6,8 +6,7 @@ install.sh
 .config/autostart/
 {{ end -}}
 
-{{ if (and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin")) -}}
-.config/bat/
+{{ if eq .chezmoi.os "windows") -}}
 .config/fish/
 .config/starship.toml
 {{ end -}}
