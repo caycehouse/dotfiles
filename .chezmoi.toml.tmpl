@@ -5,8 +5,10 @@
 
 {{ $codename := promptStringOnce . "codename" "What is this machine's codename" }}
 
-{{ $kubernetes := promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" }}
-
+{{- $kubernetes := false -}}
+{{- if ne .chezmoi.os "windows" -}}
+{{-   $kubernetes := promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" -}}
+{{- end -}}
 
 [data]
   codename = {{ $codename | quote }}
