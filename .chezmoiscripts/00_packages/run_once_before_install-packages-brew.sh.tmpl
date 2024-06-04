@@ -1,0 +1,37 @@
+{{- if lookPath "brew" -}}
+#!{{ lookPath "bash" }}
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew "age"
+brew "bat"
+brew "cloudflared"
+brew "direnv"
+brew "go-task/tap/go-task"
+brew "jq"
+brew "lsd"
+brew "moreutils"
+brew "sops"
+brew "starship"
+brew "topgrade"
+brew "youtube-dl"
+brew "yq"
+{{ if .integration.kubernetes.enabled -}}
+brew "fluxcd/tap/flux"
+brew "helm"
+brew "helmfile"
+brew "k9s"
+brew "kubeconform"
+brew "kubernetes-cli"
+brew "kustomize"
+brew "siderolabs/tap/talosctl"
+brew "stern"
+brew "talhelper"
+{{ end -}}
+EOF
+
+brew completions link
+
+{{ end -}}

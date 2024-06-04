@@ -5,6 +5,12 @@
 
 {{ $codename := promptStringOnce . "codename" "What is this machine's codename" }}
 
+{{ $kubernetes := promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" }}
+
+
 [data]
-    codename = {{ $codename | quote }}
-    osid = {{ $osid | quote }}
+  codename = {{ $codename | quote }}
+  osid = {{ $osid | quote }}
+
+[data.integration.kubernetes]
+  enabled = {{ $kubernetes }}
