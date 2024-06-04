@@ -7,7 +7,7 @@
 
 {{- $kubernetes := false -}}
 {{- if ne .chezmoi.os "windows" -}}
-{{-   $kubernetes := promptBoolOnce "Will this machine be used for kubernetes" -}}
+{{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
 
 [data]
