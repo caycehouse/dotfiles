@@ -1,9 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!{{ lookPath "bash" }}
 
-if [ -x "$(command -v bat)" ]; then
-  echo "🦇  Building the bat cache"
-  bat cache --build
+if command -v bat > /dev/null; then
+  bat cache --build >/dev/null
 fi
 
 {{ end -}}
