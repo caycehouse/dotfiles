@@ -11,3 +11,7 @@ install.sh
 .config/fish/
 .config/starship.toml
 {{ end -}}
+
+{{ if ne .chezmoi.os "windows" -}}
+AppData/
+{{ end -}}
