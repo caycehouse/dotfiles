@@ -4,18 +4,13 @@ packages:
       # CLI Applications
       # - ansible # Installed via Pip.
       - 1password-cli
-      - age
-      - bat
-      - direnv
       - fedora-workstation-repositories
       - fira-code-fonts
       - fish
       - gh
-      - go-task
       - helm
       - htop
       - info
-      - lsd
       - neofetch
       - prettyping
       - shellcheck
@@ -24,7 +19,6 @@ packages:
       - telnet
       - vim
       - xpipe
-      - zoxide
 
       # GUI Applications
       - 1password
