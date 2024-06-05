@@ -1,5 +1,5 @@
 {{ if eq .osid "linux-fedora" -}}
-#!/bin/bash
+#!{{ lookPath "bash" }}
 
 {{ range .packages.fedora.repo }}
 sudo dnf config-manager --add-repo {{ . }}
