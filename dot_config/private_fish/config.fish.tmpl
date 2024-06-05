@@ -7,6 +7,10 @@ if status is-interactive
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     {{- end }}
 
+    if type -q atuin
+        {{ lookPath "atuin" }} init fish | source
+    end
+
     if type -q direnv
         {{ lookPath "direnv" }} hook fish | source
     end
