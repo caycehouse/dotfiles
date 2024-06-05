@@ -1,0 +1,11 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!{{ lookPath "bash" }}
+
+echo "Logging in to atuin..."
+if atuin login -u {{ onepasswordRead "op://dotfiles/atuin/username" }} -p {{ onepasswordRead "op://dotfiles/atuin/password" }} -k "{{ onepasswordRead "op://dotfiles/atuin/key" }}"; then
+  echo "Logged in to atuin."
+else
+  echo "Failed to login to atuin."
+fi
+
+{{ end -}}
