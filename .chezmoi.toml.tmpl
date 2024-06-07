@@ -5,13 +5,6 @@
 
 {{ $codename := promptStringOnce . "codename" "What is this machine's codename" }}
 
-{{- $wsl := false -}}
-{{- if eq .chezmoi.os "linux" -}}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{-     $wsl = true -}}
-{{-   end -}}
-{{- end -}}
-
 {{- $kubernetes := false -}}
 {{- if ne .chezmoi.os "windows" -}}
 {{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
@@ -20,12 +13,13 @@
 [data]
   codename = {{ $codename | quote }}
   osid = {{ $osid | quote }}
-  wsl = {{ $wsl }}
 
 [data.integration.kubernetes]
   enabled = {{ $kubernetes }}
 
-{{ if .wsl -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 [onepassword]
   command = "/mnt/c/Users/cayce/AppData/Local/Microsoft/WinGet/Packages/AgileBits.1Password.CLI_Microsoft.Winget.Source_8wekyb3d8bbwe/op.exe"
-{{ end -}}
+{{-   end -}}
+{{- end -}}
