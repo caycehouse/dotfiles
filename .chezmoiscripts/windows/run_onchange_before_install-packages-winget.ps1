@@ -1,3 +1,6 @@
+$Modules = @(
+  "PSWindowsUpdate"
+)
 $Packages = @(
     "7zip.7zip"
     "AgileBits.1Password"
@@ -78,10 +81,14 @@ $Base = @{
     "WinGetVersion" = "1.7.11261"
 }
 
+# Install winget packages
 $TempFile = $(Get-Item ([System.IO.Path]::GetTempFilename())).FullName # https://github.com/PowerShell/PowerShell/issues/14100#issuecomment-1236428024
-
 Set-Content -Path $TempFile -Value $($Base | ConvertTo-Json -Depth 6)
-
 winget import --accept-package-agreements --accept-source-agreements -i $TempFile
-
 Remove-Item -Path $TempFile -Force
+
+# Install Powershell Modules
+Set-PSResourceRepository -Name PSGallery -Trusted | Out-Null
+$Modules | ForEach-Object {
+  Install-PSResource -Name $_
+}

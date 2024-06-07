@@ -1,4 +1,4 @@
-{{ if ne .chezmoi.os "windows" -}}
+{{- if lookPath "fish" -}}
 #!{{ lookPath "fish" }}
 
 {{ $plugins := list

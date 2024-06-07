@@ -1,4 +1,4 @@
-{{- if ne .chezmoi.os "windows" -}}
+{{- if lookPath "atuin" -}}
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
