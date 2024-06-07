@@ -3,15 +3,19 @@ repos/
 install.ps1
 install.sh
 
-{{ if ne .chezmoi.os "linux" -}}
-.config/autostart/
-{{ end -}}
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
+{{ end }}
 
-{{ if eq .chezmoi.os "windows" -}}
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+.config/autostart/
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
+AppData/
+{{ else }}
 .config/fish/
 .config/starship.toml
-{{ end -}}
-
-{{ if ne .chezmoi.os "windows" -}}
-AppData/
-{{ end -}}
+{{ end }}

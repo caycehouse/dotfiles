@@ -1,4 +1,3 @@
-{{- if eq .chezmoi.os "windows" -}}
 $Packages = @(
     "7zip.7zip"
     "AgileBits.1Password"
@@ -85,4 +84,3 @@ Set-Content -Path $TempFile -Value $($Base | ConvertTo-Json -Depth 6)
 winget import --accept-package-agreements --accept-source-agreements -i $TempFile
 
 Remove-Item -Path $TempFile -Force
-{{ end -}}

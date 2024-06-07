@@ -1,4 +1,3 @@
-{{- if eq .chezmoi.os "windows" -}}
 $Modules = @(
   "PSWindowsUpdate"
 )
@@ -8,4 +7,3 @@ Set-PSResourceRepository -Name PSGallery -Trusted | Out-Null
 $Modules | ForEach-Object {
   Install-PSResource -Name $_
 }
-{{ end -}}
