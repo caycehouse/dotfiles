@@ -1,6 +1,7 @@
 $Packages = @(
     "7zip.7zip"
     "AgileBits.1Password"
+    "AgileBits.1Password.CLI"
     "Armin2208.WindowsAutoNightMode"
     "Balena.Etcher"
     "calibre.calibre"
