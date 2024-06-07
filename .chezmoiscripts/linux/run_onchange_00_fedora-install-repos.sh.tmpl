@@ -1,8 +1,0 @@
-{{ if eq .osid "linux-fedora" -}}
-#!{{ lookPath "bash" }}
-
-{{ range .packages.fedora.repo }}
-sudo dnf config-manager --add-repo {{ . }}
-{{ end }}
-
-{{ end -}}

@@ -1,6 +1,71 @@
 {{ if eq .osid "linux-fedora" -}}
 #!{{ lookPath "bash" }}
 
-sudo dnf install {{ .packages.fedora.dnf | join " " }}
+set -eufo pipefail
+
+{{ $repos := list
+  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/1password.repo"
+  "https://download.docker.com/linux/fedora/docker-ce.repo"
+  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/google-chrome.repo"
+  "https://downloads.k8slens.dev/rpm/lens.repo"
+  "https://pkgs.tailscale.com/stable/fedora/tailscale.repo"
+  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/vscode.repo" -}}
+{{ $packages := list
+  "1password-cli"
+  "1password"
+  "akmod-nvidia"
+  "code"
+  "dbeaver-ce"
+  "docker-desktop"
+  "fedora-workstation-repositories"
+  "fira-code-fonts"
+  "fish"
+  "gh"
+  "gnome-shell-extension-appindicator"
+  "gnome-shell-extension-blur-my-shell"
+  "gnome-shell-extension-caffeine"
+  "gnome-shell-extension-dash-to-dock"
+  "gnome-shell-extension-drive-menu"
+  "gnome-tweaks"
+  "google-chrome-stable"
+  "helm"
+  "htop"
+  "info"
+  "lens"
+  "lutris"
+  "neofetch"
+  "prettyping"
+  "shellcheck"
+  "steam"
+  "tailscale"
+  "tealdeer"
+  "telnet"
+  "vim"
+  "virt-manager"
+  "xorg-x11-drv-nvidia-cuda"
+  "xpipe"  -}}
+{{ $flatpaks := list
+  "com.discordapp.Discord"
+  "com.github.tchx84.Flatseal"
+  "com.mattjakeman.ExtensionManager"
+  "com.parsecgaming.parsec"
+  "io.github.shiftey.Desktop"
+  "org.gnome.Extensions"
+  "us.zoom.Zoom" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+{{ range $repos }}
+{{ $sudo }}dnf config-manager --add-repo {{ . }}
+{{ end }}
+
+{{ $sudo }}dnf install -y {{ $packages | join " " }}
+
+{{ if lookPath "flatpak" }}
+flatpak install -y {{ $flatpaks | join " " }}
+{{ end }}
 
 {{ end -}}
