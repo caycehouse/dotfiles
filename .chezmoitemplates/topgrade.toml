@@ -11,6 +11,3 @@ disable = ["containers", "helm"]
 # Some vim plugins don't play nice.
 ignore_failures = ["vim"]
 
-[windows]
-# Update winget packages.
-enable_winget = true
