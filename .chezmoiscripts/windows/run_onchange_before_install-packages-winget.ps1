@@ -47,7 +47,6 @@ $Packages = @(
     "Samsung.SamsungMagician"
     "SatoshiLabs.trezor-suite"
     "SideQuestVR.SideQuest"
-    "tailscale.tailscale"
     "topgrade-rs.topgrade"
     "twpayne.chezmoi"
     "Ubisoft.Connect"
