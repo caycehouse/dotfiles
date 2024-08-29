@@ -1,3 +1,7 @@
+[linux]
+# Refresh dnf before updating.
+dnf_arguments = "--refresh"
+
 [misc]
 # Just update, don't prompt every step.
 assume_yes = true
