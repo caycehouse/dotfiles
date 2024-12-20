@@ -15,6 +15,10 @@ if status is-interactive
         {{ lookPath "direnv" }} hook fish | source
     end
 
+    if type -q mise
+        {{ lookPath "mise" }} activate fish | source
+    end
+
     if type -q starship
         {{ lookPath "starship" }} init fish | source
     end
