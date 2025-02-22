@@ -61,6 +61,8 @@ set -eufo pipefail
 {{   $sudo = "" -}}
 {{ end -}}
 
+# TODO: only install GNOME packages when GNOME is already installed.
+
 {{ range $repos }}
 {{ $sudo }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}
 {{ end }}
