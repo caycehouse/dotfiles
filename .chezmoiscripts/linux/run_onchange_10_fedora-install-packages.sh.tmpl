@@ -9,6 +9,9 @@ set -eufo pipefail
   "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/google-chrome.repo"
   "https://downloads.k8slens.dev/rpm/lens.repo"
   "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/vscode.repo" -}}
+{{ $copr := list
+  "che/nerd-fonts"
+  "kylegospo/wallpaper-engine-kde-plugin " -}}
 {{ $packages := list
   "1password-cli"
   "1password"
@@ -38,6 +41,7 @@ set -eufo pipefail
   "info"
   "lens"
   "lutris"
+  "nerd-fonts"
   "prettyping"
   "shellcheck"
   "steam"
@@ -45,6 +49,7 @@ set -eufo pipefail
   "telnet"
   "vim"
   "virt-manager"
+  "wallpaper-engine-kde-plugin"
   "xorg-x11-drv-nvidia-cuda" -}}
 {{ $flatpaks := list
   "com.discordapp.Discord"
@@ -67,12 +72,16 @@ set -eufo pipefail
 {{ $sudo }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}
 {{ end }}
 
+{{ range $copr }}
+{{ $sudo }}dnf copr enable -y {{ . }}
+{{ end }}
+
 {{ $sudo }}dnf install -y {{ $packages | join " " }}
 
 {{ if lookPath "flatpak" }}
 flatpak install -y {{ $flatpaks | join " " }}
 {{ end }}
 
-chsh -s $(which fish)
+{{ $sudo }}chsh -s "$(which fish)" "$(whoami)"
 
 {{ end -}}
