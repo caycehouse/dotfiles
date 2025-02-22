@@ -34,7 +34,7 @@ set -eufo pipefail
   "helm"
   "htop"
   "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
-  "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"  
+  "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"
   "info"
   "lens"
   "lutris"
@@ -70,5 +70,7 @@ set -eufo pipefail
 {{ if lookPath "flatpak" }}
 flatpak install -y {{ $flatpaks | join " " }}
 {{ end }}
+
+chsh -s $(which fish)
 
 {{ end -}}
