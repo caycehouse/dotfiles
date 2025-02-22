@@ -1,7 +1,4 @@
 {{ if eq .osid "linux-fedora" -}}
-#!{{ lookPath "bash" }}
-
-set -eufo pipefail
 
 {{ $repos := list
   "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/1password.repo"
@@ -53,10 +50,34 @@ set -eufo pipefail
   "org.mozilla.Thunderbird"
   "us.zoom.Zoom" -}}
 
+{{ if .gnome -}}
+{{   $packages = concat $packages (list
+      "gnome-shell-extension-appindicator"
+      "gnome-shell-extension-blur-my-shell"
+      "gnome-shell-extension-caffeine"
+      "gnome-shell-extension-dash-to-dock"
+      "gnome-shell-extension-drive-menu"
+      "gnome-tweaks") -}}
+{{ end -}}
+
+{{ if .kde -}}
+{{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}
+{{   $packages = mustAppend $packages "wallpaper-engine-kde-plugin" -}}
+{{ end -}}
+
+{{ if eq .chezmoi.hostname "kc-workstation" -}}
+{{   $copr = mustAppend $copr "lizardbyte/stable" -}}
+{{   $packages = mustAppend $packages "Sunshine" -}}
+{{ end -}}
+
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
 {{   $sudo = "" -}}
 {{ end -}}
+
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
 
 {{ range $repos }}
 {{ $sudo }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}
@@ -73,5 +94,9 @@ flatpak install -y {{ $flatpaks | join " " }}
 {{ end }}
 
 {{ $sudo }}chsh -s "$(which fish)" "$(whoami)"
+
+{{ if eq .chezmoi.hostname "kc-workstation" }}
+systemctl --user enable --now sunshine
+{{ end }}
 
 {{ end -}}

@@ -3,8 +3,6 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{ $codename := promptStringOnce . "codename" "What is this machine's codename" }}
-
 {{- $gnome := false -}}
 {{- $kde := false -}}
 {{- $kubernetes := false -}}
@@ -15,7 +13,6 @@
 {{- end -}}
 
 [data]
-  codename = {{ $codename | quote }}
   osid = {{ $osid | quote }}
   gnome = {{ $gnome }}
   kde = {{ $kde }}
