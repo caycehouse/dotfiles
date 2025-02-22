@@ -10,8 +10,7 @@ set -eufo pipefail
   "https://downloads.k8slens.dev/rpm/lens.repo"
   "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/vscode.repo" -}}
 {{ $copr := list
-  "che/nerd-fonts"
-  "kylegospo/wallpaper-engine-kde-plugin " -}}
+  "che/nerd-fonts" -}}
 {{ $packages := list
   "1password-cli"
   "1password"
@@ -27,12 +26,6 @@ set -eufo pipefail
   "fira-code-fonts"
   "fish"
   "gh"
-  "gnome-shell-extension-appindicator"
-  "gnome-shell-extension-blur-my-shell"
-  "gnome-shell-extension-caffeine"
-  "gnome-shell-extension-dash-to-dock"
-  "gnome-shell-extension-drive-menu"
-  "gnome-tweaks"
   "google-chrome-stable"
   "helm"
   "htop"
@@ -49,7 +42,6 @@ set -eufo pipefail
   "telnet"
   "vim"
   "virt-manager"
-  "wallpaper-engine-kde-plugin"
   "xorg-x11-drv-nvidia-cuda" -}}
 {{ $flatpaks := list
   "com.discordapp.Discord"
@@ -65,8 +57,6 @@ set -eufo pipefail
 {{ if eq .chezmoi.username "root" -}}
 {{   $sudo = "" -}}
 {{ end -}}
-
-# TODO: only install GNOME packages when GNOME is already installed.
 
 {{ range $repos }}
 {{ $sudo }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}

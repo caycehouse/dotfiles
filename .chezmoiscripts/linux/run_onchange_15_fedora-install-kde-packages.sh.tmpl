@@ -1,0 +1,22 @@
+{{ if and (eq .osid "linux-fedora") (.kde) -}}
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+{{ $copr := list
+  "kylegospo/wallpaper-engine-kde-plugin " -}}
+{{ $packages := list
+  "wallpaper-engine-kde-plugin" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+{{ range $copr }}
+{{ $sudo }}dnf copr enable -y {{ . }}
+{{ end }}
+
+{{ $sudo }}dnf install -y {{ $packages | join " " }}
+
+{{ end -}}
