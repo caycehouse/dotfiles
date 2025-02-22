@@ -15,11 +15,11 @@ set -eufo pipefail
   "akmod-nvidia"
   "code"
   "containerd.io"
-  "dbeaver-ce"
   "docker-buildx-plugin"
-  "docker-ce"
   "docker-ce-cli"
+  "docker-ce"
   "docker-compose-plugin"
+  "fastfetch"
   "fedora-workstation-repositories"
   "fira-code-fonts"
   "fish"
@@ -33,10 +33,11 @@ set -eufo pipefail
   "google-chrome-stable"
   "helm"
   "htop"
+  "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+  "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"  
   "info"
   "lens"
   "lutris"
-  "neofetch"
   "prettyping"
   "shellcheck"
   "steam"
@@ -44,8 +45,7 @@ set -eufo pipefail
   "telnet"
   "vim"
   "virt-manager"
-  "xorg-x11-drv-nvidia-cuda"
-  "xpipe"  -}}
+  "xorg-x11-drv-nvidia-cuda" -}}
 {{ $flatpaks := list
   "com.discordapp.Discord"
   "com.github.tchx84.Flatseal"
@@ -62,7 +62,7 @@ set -eufo pipefail
 {{ end -}}
 
 {{ range $repos }}
-{{ $sudo }}dnf config-manager --add-repo {{ . }}
+{{ $sudo }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}
 {{ end }}
 
 {{ $sudo }}dnf install -y {{ $packages | join " " }}
