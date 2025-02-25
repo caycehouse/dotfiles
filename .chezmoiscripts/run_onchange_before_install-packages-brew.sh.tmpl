@@ -23,7 +23,8 @@ export HOMEBREW_NO_ENV_HINTS=1
   "yt-dlp"
   "yq"
   "zoxide" -}}
-{{ $casks := list -}}
+{{ $casks := list
+  "font-fira-code-nerd-font" -}}
 
 {{ if .integration.kubernetes.enabled -}}
 {{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
@@ -39,5 +40,7 @@ cask "{{ . }}"
 EOF
 
 brew completions link
+
+brew install font-fira-code-nerd-font --cask # TODO: remove this when fixed: https://github.com/Homebrew/homebrew-bundle/issues/1620
 
 {{ end -}}
