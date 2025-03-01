@@ -25,9 +25,11 @@
   "helm"
   "htop"
   "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+  "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
   "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"
   "info"
   "lens"
+  "libva-nvidia-driver.{i686,x86_64}"
   "lutris"
   "mangohud"
   "prettyping"
@@ -84,6 +86,10 @@ set -eufo pipefail
 {{ range $copr }}
 {{ $sudo }}dnf copr enable -y {{ . }}
 {{ end }}
+
+# https://rpmfusion.org/Howto/Multimedia
+{{ $sudo }}dnf swap -y ffmpeg-free ffmpeg --allowerasing
+{{ $sudo }}dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
 {{ $sudo }}dnf install -y {{ $packages | join " " }}
 
