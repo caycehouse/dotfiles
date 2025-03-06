@@ -1,6 +1,11 @@
+# General exclusions
+
 README.md
 install.ps1
 install.sh
+
+
+# OS-specific exclusions
 
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
@@ -9,21 +14,37 @@ install.sh
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 .config/autostart/**
+.config/environment.d/**
+.config/MangoHud/**
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
 AppData/**
 {{ else }}
+.config/atuin/**
+.config/bat/**
 .config/fish/**
 .config/starship.toml
+.config/topgrade.toml
+.local/bin/**
 {{ end }}
+
+
+# Distribution-specific exclusions
 
 {{ if ne .osid "linux-fedora" }}
 .chezmoiscripts/linux/fedora/**
 {{ end }}
 
+
+# Config-specific exclusions
+
 {{ if not .kde }}
 .config/konsolerc
 .local/share/konsole/**
+{{ end }}
+
+{{ if not .integration.kubernetes.enabled }}
+.config/k9s/**
 {{ end }}

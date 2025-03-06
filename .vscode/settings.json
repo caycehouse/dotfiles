@@ -5,7 +5,6 @@
     "*.tmpl": "jinja",
     "*.toml.tmpl": "jinja-toml",
     "*.yaml.tmpl": "jinja-yaml",
-    "dot_git*.tmpl": "jinja-properties",
   },
   "material-icon-theme.files.associations": {
     // TODO: https://github.com/PKief/vscode-material-icon-theme/issues/330
