@@ -5,7 +5,7 @@
     exact = true
     stripComponents = 2
     refreshPeriod = "168h"
-    include = ["**/*.tmTheme"]
+    include = ["**/themes/*.tmTheme"]
 {{ end -}}
 
 {{ if .integration.kubernetes.enabled -}}
@@ -15,14 +15,14 @@
     exact = true
     stripComponents = 2
     refreshPeriod = "168h"
+    include = ["**/dist/*.yaml"]
 {{ end -}}
 
 {{ if .kde -}}
-[".local/share/konsole/catppuccin-latte.colorscheme"]
-    type = "archive-file"
+[".local/share/konsole"]
+    type = "archive"
     url = "https://github.com/catppuccin/konsole/archive/main.tar.gz"
-    path = "themes/catppuccin-latte.colorscheme"
-    exact = true
-    stripComponents = 1
+    stripComponents = 2
     refreshPeriod = "168h"
+    include = ["**/themes/*.colorscheme"]
 {{ end -}}
