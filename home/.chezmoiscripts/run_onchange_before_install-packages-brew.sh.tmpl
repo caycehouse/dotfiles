@@ -36,7 +36,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 {{ $casks := list
   "font-fira-code-nerd-font" -}}
 
-{{ if .integration.kubernetes.enabled -}}
+{{ if .kubernetes -}}
 {{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
 {{ end -}}
 

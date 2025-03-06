@@ -11,16 +11,14 @@
 {{-     $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
 {{-     $kde = promptBoolOnce . "kde" "Will KDE be used on this machine" false -}}
 {{-   end -}}
-{{-   $kubernetes = promptBoolOnce .integration.kubernetes "enabled" "Will this machine be used for kubernetes" false -}}
+{{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
 
 [data]
   osid = {{ $osid | quote }}
   gnome = {{ $gnome }}
   kde = {{ $kde }}
-
-[data.integration.kubernetes]
-  enabled = {{ $kubernetes }}
+  kubernetes = {{ $kubernetes }}
 
 {{ if eq .chezmoi.os "linux" -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}

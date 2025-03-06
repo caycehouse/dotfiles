@@ -8,7 +8,7 @@
     include = ["**/themes/*.tmTheme"]
 {{ end -}}
 
-{{ if .integration.kubernetes.enabled -}}
+{{ if .kubernetes -}}
 [".config/k9s/skins"]
     type = "archive"
     url = "https://github.com/catppuccin/k9s/archive/main.tar.gz"

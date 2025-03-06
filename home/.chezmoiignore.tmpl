@@ -45,6 +45,6 @@ AppData/**
 .local/share/konsole/**
 {{ end }}
 
-{{ if not .integration.kubernetes.enabled }}
+{{ if not .kubernetes }}
 .config/k9s/**
 {{ end }}
