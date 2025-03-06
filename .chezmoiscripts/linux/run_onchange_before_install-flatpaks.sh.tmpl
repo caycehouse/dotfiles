@@ -14,6 +14,7 @@
 set -eufo pipefail
 
 {{ template "sudo.tmpl" . }}flatpak remote-delete fedora --force || true
+{{ template "sudo.tmpl" . }}flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y {{ $flatpaks | join " " }}
 
 {{- end -}}
