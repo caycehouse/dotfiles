@@ -1,4 +1,5 @@
-{{ $copr := list -}}
+{{ $copr := list
+  "pgdev/ghostty" -}}
 
 {{ if .kde -}}
 {{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}
