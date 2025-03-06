@@ -1,8 +1,3 @@
-{{ $sudo := "sudo " -}}
-{{ if eq .chezmoi.username "root" -}}
-{{   $sudo = "" -}}
-{{ end -}}
-
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
@@ -13,8 +8,8 @@ CONFIG_FILE="/etc/dnf/dnf.conf"
 
 # Check if the line already exists before appending
 if ! grep -q "^${CONFIG_LINE}$" "$CONFIG_FILE"; then
-    echo "$CONFIG_LINE" | {{ $sudo }}tee -a "$CONFIG_FILE" > /dev/null
+    echo "$CONFIG_LINE" | {{ template "sudo.tmpl" . }}tee -a "$CONFIG_FILE" > /dev/null
 fi
 
 # Ensure dnf-plugins-core is installed
-{{ $sudo }}dnf install -y dnf-plugins-core
+{{ template "sudo.tmpl" . }}dnf install -y dnf-plugins-core

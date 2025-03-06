@@ -1,0 +1,17 @@
+{{ $copr := list -}}
+
+{{ if .kde -}}
+{{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}
+{{ end -}}
+
+{{ if eq .chezmoi.hostname "kc-workstation" -}}
+{{   $copr = mustAppend $copr "lizardbyte/stable" -}}
+{{ end -}}
+
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+{{ range $copr }}
+{{ template "sudo.tmpl" $ }}dnf copr enable -y {{ . }}
+{{ end }}

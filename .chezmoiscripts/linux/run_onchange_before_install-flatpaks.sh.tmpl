@@ -9,16 +9,11 @@
   "org.mozilla.Thunderbird"
   "us.zoom.Zoom" -}}
 
-{{ $sudo := "sudo " -}}
-{{ if eq .chezmoi.username "root" -}}
-{{   $sudo = "" -}}
-{{ end -}}
-
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
 
-{{ $sudo }}flatpak remote-delete fedora --force || true
+{{ template "sudo.tmpl" . }}flatpak remote-delete fedora --force || true
 flatpak install -y {{ $flatpaks | join " " }}
 
 {{- end -}}
