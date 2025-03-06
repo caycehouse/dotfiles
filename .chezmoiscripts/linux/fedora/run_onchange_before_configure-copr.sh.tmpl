@@ -1,6 +1,5 @@
 {{ $copr := list
-  "mavit/discover-overlay"
-  "pgdev/ghostty" -}}
+  "mavit/discover-overlay" -}}
 
 {{ if .kde -}}
 {{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}

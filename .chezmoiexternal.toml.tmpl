@@ -16,3 +16,13 @@
     stripComponents = 2
     refreshPeriod = "168h"
 {{ end -}}
+
+{{ if .kde -}}
+[".local/share/konsole/catppuccin-latte.colorscheme"]
+    type = "archive-file"
+    url = "https://github.com/catppuccin/konsole/archive/main.tar.gz"
+    path = "themes/catppuccin-latte.colorscheme"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{ end -}}
