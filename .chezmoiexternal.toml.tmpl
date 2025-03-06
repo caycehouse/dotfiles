@@ -6,6 +6,9 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["**/*.tmTheme"]
+{{ end -}}
+
+{{ if .integration.kubernetes.enabled -}}
 [".config/k9s/skins"]
     type = "archive"
     url = "https://github.com/catppuccin/k9s/archive/main.tar.gz"

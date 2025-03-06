@@ -7,9 +7,11 @@
 {{- $kde := false -}}
 {{- $kubernetes := false -}}
 {{- if ne .chezmoi.os "windows" -}}
-{{-   $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
-{{-   $kde = promptBoolOnce . "kde" "Will KDE be used on this machine" false -}}
-{{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
+{{-   if ne .chezmoi.os "darwin" -}}
+{{-     $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
+{{-     $kde = promptBoolOnce . "kde" "Will KDE be used on this machine" false -}}
+{{-   end -}}
+{{-   $kubernetes = promptBoolOnce .integration.kubernetes "enabled" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
 
 [data]

@@ -1,5 +1,4 @@
 README.md
-repos/
 install.ps1
 install.sh
 
@@ -9,14 +8,14 @@ install.sh
 
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-.config/autostart/
+.config/autostart/**
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
-AppData/
+AppData/**
 {{ else }}
-.config/fish/
+.config/fish/**
 .config/starship.toml
 {{ end }}
 
