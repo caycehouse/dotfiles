@@ -2,19 +2,26 @@
 {{ $flatpaks := list
   "com.discordapp.Discord"
   "com.github.tchx84.Flatseal"
-  "com.mattjakeman.ExtensionManager"
   "com.parsecgaming.parsec"
   "io.github.shiftey.Desktop"
-  "org.gnome.Extensions"
   "org.mozilla.Thunderbird"
   "us.zoom.Zoom" -}}
+
+{{ if .gnome -}}
+{{   $flatpaks = concat $flatpaks (list
+      "com.mattjakeman.ExtensionManager"
+      "org.gnome.Extensions") -}}
+{{ end -}}
 
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
 
-{{ template "sudo.tmpl" . }}flatpak remote-delete fedora --force || true
+# Configure Flathub repository
+{{ template "sudo.tmpl" . }}flatpak remote-delete fedora --force 2>/dev/null || true
 {{ template "sudo.tmpl" . }}flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Install all flatpaks
 flatpak install -y {{ $flatpaks | join " " }}
 
-{{- end -}}
+{{ end -}}
