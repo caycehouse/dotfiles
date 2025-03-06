@@ -19,3 +19,7 @@ AppData/
 .config/fish/
 .config/starship.toml
 {{ end }}
+
+{{ if ne .osid "linux-fedora" }}
+.chezmoiscripts/linux/fedora/**
+{{ end }}

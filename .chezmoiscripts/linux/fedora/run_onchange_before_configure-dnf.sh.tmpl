@@ -1,0 +1,20 @@
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+# Define the setting to be added
+CONFIG_LINE="max_parallel_downloads=10"
+CONFIG_FILE="/etc/dnf/dnf.conf"
+
+# Check if the line already exists before appending
+if ! grep -q "^${CONFIG_LINE}$" "$CONFIG_FILE"; then
+    echo "$CONFIG_LINE" | {{ $sudo }}tee -a "$CONFIG_FILE" > /dev/null
+fi
+
+# Ensure dnf-plugins-core is installed
+{{ $sudo }}dnf install -y dnf-plugins-core

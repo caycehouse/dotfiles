@@ -1,0 +1,24 @@
+{{- if lookPath "flatpak" -}}
+{{ $flatpaks := list
+  "com.discordapp.Discord"
+  "com.github.tchx84.Flatseal"
+  "com.mattjakeman.ExtensionManager"
+  "com.parsecgaming.parsec"
+  "io.github.shiftey.Desktop"
+  "org.gnome.Extensions"
+  "org.mozilla.Thunderbird"
+  "us.zoom.Zoom" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+{{ $sudo }}flatpak remote-delete fedora --force || true
+flatpak install -y {{ $flatpaks | join " " }}
+
+{{- end -}}

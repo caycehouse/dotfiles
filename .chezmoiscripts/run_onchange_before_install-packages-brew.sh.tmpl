@@ -12,14 +12,24 @@ export HOMEBREW_NO_ENV_HINTS=1
   "bat"
   "cloudflared"
   "direnv"
+  "fastfetch"
+  "fish"
+  "gh"
   "go-task/tap/go-task"
+  "helm"
+  "htop"
   "jq"
   "lsd"
   "moreutils"
+  "netcat"
+  "prettyping"
+  "shellcheck"
   "sops"
   "starship"
+  "tealdeer"
   "topgrade"
   "viddy"
+  "vim"
   "yt-dlp"
   "yq"
   "zoxide" -}}
@@ -30,7 +40,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 {{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
 {{ end -}}
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
