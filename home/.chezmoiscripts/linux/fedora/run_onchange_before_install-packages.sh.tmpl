@@ -1,7 +1,6 @@
 {{ $packages := list
   "1password-cli"
   "1password"
-  "akmod-nvidia"
   "code"
   "containerd.io"
   "discover-overlay"
@@ -15,13 +14,15 @@
   "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"
   "info"
   "lens"
-  "libva-nvidia-driver.{i686,x86_64}"
-  "lutris"
-  "mangohud"
-  "steam"
   "telnet"
-  "virt-manager"
-  "xorg-x11-drv-nvidia-cuda" -}}
+  "virt-manager" -}}
+
+{{ if .gaming -}}
+{{   $packages = concat $packages (list
+      "lutris"
+      "mangohud"
+      "steam") -}}
+{{ end -}}
 
 {{ if .gnome -}}
 {{   $packages = concat $packages (list
@@ -35,6 +36,13 @@
 
 {{ if .kde -}}
 {{   $packages = mustAppend $packages "wallpaper-engine-kde-plugin" -}}
+{{ end -}}
+
+{{ if .nvidia -}}
+{{   $packages = concat $packages (list
+      "akmod-nvidia"
+      "libva-nvidia-driver.{i686,x86_64}"
+      "xorg-x11-drv-nvidia-cuda") -}}
 {{ end -}}
 
 {{ if eq .chezmoi.hostname "kc-workstation" -}}

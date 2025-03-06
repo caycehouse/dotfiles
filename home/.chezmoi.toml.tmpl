@@ -3,22 +3,29 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{- $gaming := false -}}
 {{- $gnome := false -}}
 {{- $kde := false -}}
 {{- $kubernetes := false -}}
+{{- $nvidia := false -}}
 {{- if ne .chezmoi.os "windows" -}}
 {{-   if ne .chezmoi.os "darwin" -}}
 {{-     $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
 {{-     $kde = promptBoolOnce . "kde" "Will KDE be used on this machine" false -}}
+{{-     $nvidia = promptBoolOnce . "nvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{-   end -}}
 {{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
 
+{{- $gaming = promptBoolOnce . "gaming" "Will this machine be used for gaming" false -}}
+
 [data]
-  osid = {{ $osid | quote }}
+  gaming = {{ $gaming }}
   gnome = {{ $gnome }}
   kde = {{ $kde }}
   kubernetes = {{ $kubernetes }}
+  nvidia = {{ $nvidia }}
+  osid = {{ $osid | quote }}
 
 {{ if eq .chezmoi.os "linux" -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
