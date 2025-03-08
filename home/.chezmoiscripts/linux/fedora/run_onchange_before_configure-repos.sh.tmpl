@@ -1,10 +1,12 @@
 {{ $repos := list
   "https://download.docker.com/linux/fedora/docker-ce.repo"
-  "https://downloads.k8slens.dev/rpm/lens.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/assets/repos/1password.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/assets/repos/firefoxpwa.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/assets/repos/google-chrome.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/assets/repos/vscode.repo" -}}
+  "https://downloads.k8slens.dev/rpm/lens.repo" -}}
+
+{{   $repos = concat $repos (list
+      (joinPath .chezmoi.sourceDir "/../assets/repos/1password.repo")
+      (joinPath .chezmoi.sourceDir "/../assets/repos/firefoxpwa.repo")
+      (joinPath .chezmoi.sourceDir "/../assets/repos/google-chrome.repo")
+      (joinPath .chezmoi.sourceDir "/../assets/repos/vscode.repo")) -}}
 
 #!{{ lookPath "bash" }}
 
