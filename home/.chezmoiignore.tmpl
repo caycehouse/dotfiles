@@ -38,6 +38,13 @@ AppData/**
 .chezmoiscripts/linux/fedora/**
 {{ end }}
 
+{{ if eq .chezmoi.os "linux" -}}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+.config/autostart/**
+.config/environment.d/10-mangohud.conf
+.config/MangoHud/**
+{{   end -}}
+{{ end -}}
 
 # Config-specific exclusions
 
