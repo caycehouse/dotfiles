@@ -1,9 +1,0 @@
-function cat --description 'cat but bat'
-    if test (count $argv) -gt 0
-        if type -q bat
-            {{ lookPath "bat" }} --paging=never $argv
-        else
-            {{ lookPath "cat" }} $argv
-        end
-    end
-end

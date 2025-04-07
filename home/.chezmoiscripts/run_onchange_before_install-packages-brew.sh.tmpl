@@ -11,7 +11,8 @@ export HOMEBREW_NO_ENV_HINTS=1
   "atuin"
   "bat"
   "cloudflared"
-  "direnv"
+  "cowsay"
+  "doggo"
   "fastfetch"
   "fish"
   "gh"
@@ -37,7 +38,7 @@ export HOMEBREW_NO_ENV_HINTS=1
   "font-fira-code-nerd-font" -}}
 
 {{ if .kubernetes -}}
-{{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
+{{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubecolor" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
 {{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF

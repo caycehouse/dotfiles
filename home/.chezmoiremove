@@ -1,0 +1,6 @@
+.config/fish/conf.d/env.fish
+.config/fish/conf.d/alias.fish
+.config/fish/functions/cat.fish
+.config/fish/functions/fish_greeting.fish
+.config/fish/functions/k.fish
+

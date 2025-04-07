@@ -1,11 +1,12 @@
+set -gx KUBE_EDITOR vim
 set -gx VISUAL "code --wait"
 set -gx EDITOR vim
-set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx HOMEBREW_CASK_OPTS --no-quarantine
 set -gx GOPATH {{ .chezmoi.homeDir }}/.go
 set -gx ANSIBLE_FORCE_COLOR true
 set -gx ANSIBLE_HOST_KEY_CHECKING False
 set -gx PY_COLORS true
+set -gx GPG_TTY (tty)
+set -gx LANG en_US.utf-8
 set -gx GH_TOKEN {{ onepasswordRead "op://Private/roqn5chdwkgs2vp5zjer2gqmia/github token" }}
 set -Ux FZF_DEFAULT_OPTS "\
 --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
