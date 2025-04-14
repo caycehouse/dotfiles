@@ -3,17 +3,11 @@
 
 {{ $plugins := list
     "catppuccin/fish"
-    "danhper/fish-ssh-agent"
-    "decors/fish-colored-man"
-    "edc/bass"
     "franciscolourenco/done"
-    "jhillyerd/plugin-git"
     "jorgebucaran/autopair.fish"
     "jorgebucaran/fisher"
-    "jorgebucaran/spark.fish"
     "kidonng/zoxide.fish"
-    "nickeb96/puffer-fish"
-    "shoriminimoe/fish-extract" -}}
+    "nickeb96/puffer-fish" -}}
 
 type fisher &>/dev/null || curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
