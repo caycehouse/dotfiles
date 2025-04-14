@@ -5,7 +5,7 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 set -gx MISE_FISH_AUTO_ACTIVATE 0
 
 for bindir in /usr/local/bin /opt/homebrew/bin
-    test -d $bindir && fish_add_path --global --prepend $bindir
+    test -d $bindir && fish_add_path --global $bindir
 end
 
 {{- if lookPath "/opt/homebrew/bin/brew" }}

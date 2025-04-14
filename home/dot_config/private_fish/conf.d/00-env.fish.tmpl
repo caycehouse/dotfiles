@@ -17,7 +17,7 @@ set -Ux FZF_DEFAULT_OPTS "\
 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 {{ end -}}
 
-fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
-fish_add_path "{{ .chezmoi.homeDir }}/.cargo/bin"
-fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
-fish_add_path "{{ .chezmoi.homeDir }}/.go/bin"
+fish_add_path --global "{{ .chezmoi.homeDir }}/.local/bin"
+fish_add_path --global "{{ .chezmoi.homeDir }}/.cargo/bin"
+fish_add_path --global "{{ .chezmoi.homeDir }}/.krew/bin"
+fish_add_path --global "{{ .chezmoi.homeDir }}/.go/bin"
