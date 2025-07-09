@@ -30,7 +30,7 @@ command -v brew >/dev/null 2>&1 ||
     (echo '🍺  Installing Homebrew' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 
 # Load brew into shell environment
-command -v brew >/dev/null 2>&1 || export PATH="/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
+command -v brew >/dev/null 2>&1 || export PATH="/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:$PATH"
 command -v brew >/dev/null 2>&1 && eval "$(brew shellenv)"
 
 # Install chezmoi
