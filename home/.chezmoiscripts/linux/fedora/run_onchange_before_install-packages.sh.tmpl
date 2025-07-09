@@ -55,6 +55,6 @@ set -eufo pipefail
 
 # https://rpmfusion.org/Howto/Multimedia
 {{ template "sudo.tmpl" . }}dnf swap -y ffmpeg-free ffmpeg --allowerasing
-{{ template "sudo.tmpl" . }}dnf4 update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+{{ template "sudo.tmpl" . }}dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
 {{ template "sudo.tmpl" . }}dnf install -y {{ $packages | join " " }}
