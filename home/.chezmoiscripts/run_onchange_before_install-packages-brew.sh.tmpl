@@ -46,6 +46,9 @@ export HOMEBREW_NO_ENV_HINTS=1
 {{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF
+{{ range ($taps | sortAlpha | uniq) -}}
+tap "{{ . }}"
+{{ end -}}
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
