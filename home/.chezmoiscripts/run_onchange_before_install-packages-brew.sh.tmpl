@@ -6,6 +6,8 @@ set -eufo pipefail
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+{{ $taps := list
+  "go-task/tap" -}}
 {{ $brews := list
   "age"
   "atuin"
@@ -16,7 +18,7 @@ export HOMEBREW_NO_ENV_HINTS=1
   "fastfetch"
   "fish"
   "gh"
-  "go-task/tap/go-task"
+  "go-task"
   "helm"
   "htop"
   "jq"
@@ -39,7 +41,8 @@ export HOMEBREW_NO_ENV_HINTS=1
   "font-fira-code-nerd-font" -}}
 
 {{ if .kubernetes -}}
-{{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubecolor" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
+{{   $taps = concat $taps (list  "fluxcd/tap" "siderolabs/tap")}}
+{{   $brews = concat $brews (list  "flux" "helm" "helmfile" "k9s" "kubecolor" "kubeconform" "kubernetes-cli" "kustomize" "stern" "talhelper" "talosctl")}}
 {{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF
