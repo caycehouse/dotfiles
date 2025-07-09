@@ -43,7 +43,7 @@ if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
 else
     echo "🚀  Initializing dotfiles with:"
     echo "    chezmoi init caycehouse"
-    chezmoi init caycehouse
+    chezmoi init --apply caycehouse
 fi
 
 echo ""
