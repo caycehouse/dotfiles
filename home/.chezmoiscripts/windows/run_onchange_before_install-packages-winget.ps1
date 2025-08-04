@@ -32,7 +32,6 @@ $Packages = @(
     "Microsoft.WSL"
     "Mirantis.Lens"
     "Mozilla.Firefox"
-    "Nextcloud.NextcloudDesktop"
     "NexusMods.Vortex"
     "Nvidia.Broadcast"
     "Nvidia.GeForceExperience"
