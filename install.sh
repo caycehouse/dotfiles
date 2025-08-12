@@ -13,7 +13,7 @@ if ! command -v gcc >/dev/null 2>&1; then
         sudo apt-get update
         sudo apt-get install -y build-essential procps curl file git
     elif command -v dnf >/dev/null 2>&1; then
-        sudo dnf groupinstall -y 'Development Tools'
+        sudo dnf group install -y development-tools
         sudo dnf install -y procps-ng curl file git
     elif command -v yum >/dev/null 2>&1; then
         sudo yum groupinstall -y 'Development Tools'
