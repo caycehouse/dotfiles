@@ -20,6 +20,10 @@ if type -q htop
     abbr top htop
 end
 
+if type -q just
+    abbr j just
+end
+
 if type -q kubectl
     abbr k kubectl
 end
