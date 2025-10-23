@@ -90,3 +90,6 @@ Set-PSResourceRepository -Name PSGallery -Trusted | Out-Null
 $Modules | ForEach-Object {
   Install-PSResource -Name $_
 }
+
+# Enable long path support (https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation)
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
