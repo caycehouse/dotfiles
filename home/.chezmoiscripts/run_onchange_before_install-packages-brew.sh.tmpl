@@ -30,7 +30,6 @@ export HOMEBREW_NO_ENV_HINTS=1
   "shellcheck"
   "sops"
   "starship"
-  "syncthing"
   "tealdeer"
   "topgrade"
   "viddy"
@@ -59,7 +58,5 @@ cask "{{ . }}"
 EOF
 
 brew completions link
-
-brew services start syncthing
 
 {{ end -}}
