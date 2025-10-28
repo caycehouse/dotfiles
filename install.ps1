@@ -3,14 +3,14 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
 if (-not $env:CODESPACES -or $env:CODESPACES -eq 'false') {
   # Install latest Powershell version
-  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --id Microsoft.Powershell --source winget
+  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --silent --id Microsoft.Powershell --source winget
 }
 
 # Install chezmoi if necessary
 if (Get-Command -Name chezmoi -ErrorAction SilentlyContinue) {
   Write-Host "Chezmoi is already installed."
 } else {
-  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity chezmoi
+  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --silent chezmoi
 }
 
 # Ensure chezmoi is in PATH
