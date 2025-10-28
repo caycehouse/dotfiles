@@ -57,13 +57,15 @@ else
   brew install chezmoi
 fi
 
-# Install 1Password if necessary
-if which -s op; then
-  echo "1Password is already installed."
-else
-  brew install --cask 1password
-  brew install 1password-cli
-  read -p "Please open 1Password, log into all accounts and set under Settings>CLI activate Integrate with 1Password CLI. Press any key to continue." -n 1 -r
+if [ "${ostype}" == "Darwin" ]; then
+  # Install 1Password if necessary
+  if which -s op; then
+    echo "1Password is already installed."
+  else
+    brew install --cask 1password
+    brew install 1password-cli
+    read -p "Please open 1Password, log into all accounts and set under Settings>CLI activate Integrate with 1Password CLI. Press any key to continue." -n 1 -r
+  fi
 fi
 
 # Apply dotfiles
