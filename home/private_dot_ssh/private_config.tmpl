@@ -2,12 +2,16 @@ Include config.d/*
 
 LogLevel ERROR
 
-{{ if ne .chezmoi.os "windows" }}
+{{ if ne .chezmoi.os "windows" -}}
 Host *
   ControlMaster auto
   ControlPath {{ .chezmoi.homeDir }}/.ssh/sockets/%r@%h-%p
   ControlPersist 600
+{{-   if eq .chezmoi.os "linux" }}
   IdentityAgent {{ .chezmoi.homeDir }}/.1password/agent.sock
+{{-   else }}
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{   end }}
 {{ end -}}
 
 Host 192.168.*.*
