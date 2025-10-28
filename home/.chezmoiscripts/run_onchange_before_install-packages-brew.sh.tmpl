@@ -40,7 +40,29 @@ export HOMEBREW_NO_ENV_HINTS=1
 {{ $casks := list
   "1password"
   "1password-cli"
-  "font-fira-code-nerd-font" -}}
+  "appcleaner"
+  "balenaetcher"
+  "cyberduck"
+  "devtoys"
+  "discord"
+  "docker-desktop"
+  "font-fira-code-nerd-font"
+  "github"
+  "iterm2"
+  "keka"
+  "kekaexternalhelper"
+  "kindle"
+  "microsoft-auto-update"
+  "microsoft-teams"
+  "obsidian"
+  "onyx"
+  "postman"
+  "silentknight"
+  "visual-studio-code" -}}
+
+{{ if .gaming -}}
+{{   $casks = concat $casks (list  "curseforge" "ea" "epic-games" "feed-the-beast" "gog-galaxy" "moonlight" "parsec" "prismlauncher" "steam")}}
+{{ end -}}
 
 {{ if .kubernetes -}}
 {{   $taps = concat $taps (list  "fluxcd/tap" "siderolabs/tap")}}
