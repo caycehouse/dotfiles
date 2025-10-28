@@ -1,0 +1,6 @@
+{{- if lookPath "fish" -}}
+#!{{ lookPath "bash" }}
+
+{{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"
+
+{{ end -}}

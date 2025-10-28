@@ -1,18 +1,11 @@
 {{- if lookPath "fish" -}}
 #!{{ lookPath "fish" }}
 
-{{ $plugins := list
-    "catppuccin/fish"
-    "franciscolourenco/done"
-    "jorgebucaran/autopair.fish"
-    "jorgebucaran/fisher"
-    "kidonng/zoxide.fish"
-    "nickeb96/puffer-fish" -}}
+if ! type -q fisher
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+end
 
-type fisher &>/dev/null || curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-fisher install {{ $plugins | join " " }}
-
-{{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"
+# fisher_plugins hash: {{ include "dot_config/private_fish/fish_plugins" | sha256sum }}
+fisher update
 
 {{ end -}}
