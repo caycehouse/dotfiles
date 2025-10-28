@@ -1,0 +1,5 @@
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+{{ template "sudo.tmpl" . }}softwareupdate --agree-to-license --install-rosetta
