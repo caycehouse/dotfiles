@@ -1,5 +1,0 @@
-#!{{ lookPath "bash" }}
-
-set -eufo pipefail
-
-{{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"

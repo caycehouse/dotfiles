@@ -13,4 +13,6 @@ type fisher &>/dev/null || curl -sL https://git.io/fisher | source && fisher ins
 
 fisher install {{ $plugins | join " " }}
 
+{{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"
+
 {{ end -}}

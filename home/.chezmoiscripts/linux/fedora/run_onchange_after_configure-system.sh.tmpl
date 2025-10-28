@@ -2,8 +2,6 @@
 
 set -eufo pipefail
 
-{{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"
-
 {{ if eq .chezmoi.hostname "kc-workstation" }}
 systemctl --user enable --now sunshine
 {{ end }}
