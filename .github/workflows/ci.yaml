@@ -1,13 +1,16 @@
 name: Test Install Scripts
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - 'install.sh'
       - 'install.ps1'
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - 'install.sh'
       - 'install.ps1'
