@@ -1,0 +1,8 @@
+#!{{ lookPath "bash" }}
+
+set -Eeufo pipefail
+
+osascript -e 'tell application "System Preferences" to quit'
+
+# Enable TouchID for sudo
+! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i '2iauth        sufficient     pam_tid.so' /etc/pam.d/sudo
