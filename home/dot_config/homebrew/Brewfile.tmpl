@@ -1,0 +1,103 @@
+tap "go-task/tap"
+brew "age"
+brew "atuin"
+brew "bat"
+brew "chezmoi"
+brew "cloudflared"
+brew "cowsay"
+brew "dockutil"
+brew "doggo"
+brew "fastfetch"
+brew "fish"
+brew "gh"
+brew "go-task"
+brew "helm"
+brew "htop"
+brew "jq"
+brew "lsd"
+brew "lolcat"
+brew "mas"
+brew "moreutils"
+brew "netcat"
+brew "prettyping"
+brew "shellcheck"
+brew "sops"
+brew "starship"
+brew "tealdeer"
+brew "topgrade"
+brew "viddy"
+brew "vim"
+brew "yt-dlp"
+brew "yq"
+brew "zoxide"
+cask "1password"
+cask "1password-cli"
+cask "appcleaner"
+cask "balenaetcher"
+cask "cyberduck"
+cask "devtoys"
+cask "discord"
+cask "docker-desktop"
+cask "font-fira-code-nerd-font"
+cask "ghostty"
+cask "github"
+cask "google-chrome"
+cask "keka"
+cask "kekaexternalhelper"
+cask "microsoft-auto-update"
+cask "microsoft-teams"
+cask "obsidian"
+cask "onyx"
+cask "postman"
+cask "silentknight"
+cask "visual-studio-code"
+mas "1Password for Safari", id: 1569813296
+mas "AdGuard for Safari", id: 1440147259
+mas "Balance Lock", id: 1019371109
+mas "ColorSlurp", id: 1287239339
+mas "Developer", id: 640199958
+mas "Discovery", id: 1381004916
+mas "GoodNotes", id: 1444383602
+mas "Keynote", id: 409183694
+mas "Amazon Kindle", id: 302584613
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft OneNote", id: 784801555
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 409203825
+mas "OneDrive", id: 823766827
+mas "Pages", id: 409201541
+mas "Termius", id: 1176074088
+mas "uBlock Origin Lite", id: 6745342698
+mas "Xcode", id: 497799835
+
+{{- if .gaming }}
+cask "curseforge"
+cask "ea"
+cask "epic-games"
+cask "feed-the-beast"
+cask "gog-galaxy"
+cask "moonlight"
+cask "parsec"
+cask "prismlauncher"
+cask "steam"
+mas "Steam Link", id: 1246969117
+{{- end }}
+
+{{- if .kubernetes }}
+tap "fluxcd/tap"
+tap "siderolabs/tap"
+brew "flux"
+brew "helm"
+brew "helmfile"
+brew "k9s"
+brew "kubecolor"
+brew "kubeconform"
+brew "kubernetes-cli"
+brew "kustomize"
+brew "stern"
+brew "talhelper"
+brew "talosctl"
+{{- end }}

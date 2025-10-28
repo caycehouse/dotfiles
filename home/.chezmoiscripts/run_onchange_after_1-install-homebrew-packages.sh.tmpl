@@ -1,0 +1,18 @@
+{{- if lookPath "brew" -}}
+#!{{ lookPath "bash" }}
+
+set -Eeufo pipefail
+
+# Brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
+export HOMEBREW_BUNDLE_FILE={{ .chezmoi.homeDir }}/.config/homebrew/Brewfile
+export HOMEBREW_CASK_OPTS=--no-quarantine
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+
+echo "Running brew bundle"
+brew bundle --all
+
+echo "Running brew bundle cleanup"
+brew bundle cleanup --brews --casks --taps --mas --no-vscode --force || true
+
+{{ end -}}
