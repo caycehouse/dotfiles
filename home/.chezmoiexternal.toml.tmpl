@@ -6,6 +6,13 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["**/themes/*.tmTheme"]
+[".config/ghostty/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/ghostty/archive/main.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["**/themes/*.conf"]
 {{ end -}}
 
 {{ if .kubernetes -}}

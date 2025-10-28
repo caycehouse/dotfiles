@@ -1,0 +1,25 @@
+# Theme config
+theme = catppuccin-latte.conf
+
+# Fonts
+font-family = FiraCode Nerd Font
+font-size = 12
+font-thicken = true
+
+# Decoration settings
+window-padding-balance = false
+window-padding-x = 10
+window-padding-y = 10,2
+
+# Application settings
+auto-update = download
+auto-update-channel = stable
+clipboard-trim-trailing-spaces = true
+
+# Window settings
+window-height = 45
+window-width = 180
+
+# Cursor settings
+cursor-style = block
+shell-integration-features = no-cursor
