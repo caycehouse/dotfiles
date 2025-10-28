@@ -1,0 +1,25 @@
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+declare -a remove_labels=(
+  Contacts
+  Calendar
+  Notes
+  Reminders
+  Maps
+  Photos
+  Pages
+  Numbers
+  Keynote
+  Books
+)
+
+for label in "${remove_labels[@]}"; do
+  dockutil --no-restart --remove "${label}" || true
+done
+
+dockutil --add '~/Applications/Google Chrome.app' --label 'Google Chrome' --position 2 --no-restart
+dockutil --add '~/Applications/iTerm.app' --label 'iTerm'--no-restart
+dockutil --add '~/Applications/Visual Studio Code.app' --label 'Visual Studio Code' --no-restart
+dockutil --add '~/Applications/Keka.app' --label 'Keka' --no-restart
