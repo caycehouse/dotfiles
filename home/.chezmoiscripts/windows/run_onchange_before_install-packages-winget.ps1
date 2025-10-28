@@ -76,7 +76,7 @@ $Base = @{
             }
         }
     )
-    "WinGetVersion" = "1.7.11261"
+    "WinGetVersion" = "1.11.510"
 }
 
 # Install winget packages
