@@ -36,8 +36,10 @@
 {{   else }}
   program = "/opt/1Password/op-ssh-sign"
 {{   end -}}
-{{ else }}
+{{ else if eq .chezmoi.os "windows" }}
   program = "C:/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{ else }}
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 {{ end -}}
 [init]
   defaultBranch = main
