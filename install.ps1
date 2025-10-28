@@ -13,7 +13,10 @@ if (Get-Command -Name chezmoi -ErrorAction SilentlyContinue) {
   winget install --accept-package-agreements --accept-source-agreements --disable-interactivity chezmoi
 }
 
+# Ensure chezmoi is in PATH
+$env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","User") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","Machine")
+
 # Apply dotfiles
 Write-Host "Applying Chezmoi configuration."
-chezmoi init caycehouse/dotfiles
-chezmoi apply
+chezmoi.exe init caycehouse/dotfiles
+chezmoi.exe apply
