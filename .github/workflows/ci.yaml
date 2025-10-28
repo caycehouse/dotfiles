@@ -30,8 +30,8 @@ jobs:
       - name: Run install script
         run: ./install.sh
         shell: bash
-        if: matrix.os != 'Windows'
+        if: runner.os != 'Windows'
       - name: Run install script
         run: ./install.ps1
         shell: pwsh
-        if: matrix.os == 'Windows'
+        if: runner.os == 'Windows'
