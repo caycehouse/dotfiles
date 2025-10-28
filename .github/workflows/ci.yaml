@@ -1,0 +1,33 @@
+name: Test Install Scripts
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'install.sh'
+      - 'install.ps1'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'install.sh'
+      - 'install.ps1'
+
+jobs:
+  install:
+    name: Test install.sh
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    env:
+      CHEZMOI_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install script
+        run: ./install.sh
+        shell: bash
+        if: ${{runner.os != 'Windows'}}
+      - name: Run install script
+        run: ./install.ps1
+        shell: pwsh
+        if: ${{runner.os == 'Windows'}}
