@@ -3,16 +3,20 @@
 set -eufo pipefail
 
 declare -a remove_labels=(
-  Contacts
-  Calendar
-  Notes
-  Reminders
-  Maps
-  Photos
-  Pages
-  Numbers
-  Keynote
   Books
+  Calendar
+  Contacts
+  FaceTime
+  Freeform
+  Keynote
+  Maps
+  News
+  Notes
+  Numbers
+  Pages
+  Photos
+  Reminders
+  TV
 )
 
 for label in "${remove_labels[@]}"; do
