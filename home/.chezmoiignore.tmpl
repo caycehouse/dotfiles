@@ -1,10 +1,3 @@
-# General exclusions
-
-README.md
-install.ps1
-install.sh
-
-
 # OS-specific exclusions
 
 {{ if ne .chezmoi.os "darwin" }}
@@ -25,6 +18,8 @@ AppData/**
 .config/atuin/**
 .config/bat/**
 .config/fish/**
+.config/ghostty/**
+.config/homebrew/**
 .config/starship.toml
 .config/topgrade.toml
 .local/bin/**
