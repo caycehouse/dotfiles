@@ -2,13 +2,13 @@
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
 # Install latest Powershell version
-winget install --id Microsoft.Powershell --source winget
+winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --id Microsoft.Powershell --source winget
 
 # Install chezmoi if necessary
 if (Get-Command -Name chezmoi) {
   Write-Host "Chezmoi is already installed."
 } else {
-  winget install chezmoi
+  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity chezmoi
 }
 
 # Apply dotfiles
