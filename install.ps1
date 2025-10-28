@@ -7,7 +7,7 @@ if (-not $env:CODESPACES -or $env:CODESPACES -eq 'false') {
 }
 
 # Install chezmoi if necessary
-if (Get-Command -Name chezmoi) {
+if (Get-Command -Name chezmoi -ErrorAction SilentlyContinue) {
   Write-Host "Chezmoi is already installed."
 } else {
   winget install --accept-package-agreements --accept-source-agreements --disable-interactivity chezmoi
