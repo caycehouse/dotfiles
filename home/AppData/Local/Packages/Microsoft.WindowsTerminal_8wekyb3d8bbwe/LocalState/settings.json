@@ -1,51 +1,74 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions":
+    [
         {
             "command": "paste",
-            "id": "User.paste",
-            "keys": "ctrl+v"
+            "id": "User.paste"
         },
         {
-            "command": {
+            "command":
+            {
                 "action": "copy",
                 "singleLine": false
             },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
+            "id": "User.copy.644BA8F2"
         },
         {
-            "command": {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command":
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
-        },
-        {
-            "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "User.splitPane.A6751878"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-    "newTabMenu": [
+    "keybindings":
+    [
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu":
+    [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": {
-        "defaults": {
+    "profiles":
+    {
+        "defaults":
+        {
             "colorScheme": "Catppuccin Latte",
-            "font": {
+            "font":
+            {
                 "face": "FiraCode Nerd Font"
             }
         },
-        "list": [
+        "list":
+        [
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
@@ -82,46 +105,56 @@
             }
         ]
     },
-    "schemes": [
+    "schemes":
+    [
         {
-            "name": "Catppuccin Latte",
-            "cursorColor": "#DC8A78",
-            "selectionBackground": "#ACB0BE",
             "background": "#EFF1F5",
-            "foreground": "#4C4F69",
             "black": "#5C5F77",
-            "red": "#D20F39",
-            "green": "#40A02B",
-            "yellow": "#DF8E1D",
             "blue": "#1E66F5",
-            "purple": "#EA76CB",
-            "cyan": "#179299",
-            "white": "#ACB0BE",
             "brightBlack": "#ACB0BE",
-            "brightRed": "#D20F39",
-            "brightGreen": "#40A02B",
-            "brightYellow": "#DF8E1D",
             "brightBlue": "#1E66F5",
-            "brightPurple": "#EA76CB",
             "brightCyan": "#179299",
-            "brightWhite": "#BCC0CC"
+            "brightGreen": "#40A02B",
+            "brightPurple": "#EA76CB",
+            "brightRed": "#D20F39",
+            "brightWhite": "#BCC0CC",
+            "brightYellow": "#DF8E1D",
+            "cursorColor": "#DC8A78",
+            "cyan": "#179299",
+            "foreground": "#4C4F69",
+            "green": "#40A02B",
+            "name": "Catppuccin Latte",
+            "purple": "#EA76CB",
+            "red": "#D20F39",
+            "selectionBackground": "#ACB0BE",
+            "white": "#ACB0BE",
+            "yellow": "#DF8E1D"
         }
     ],
     "theme": "Catppuccin Latte",
-    "themes": [
+    "themes":
+    [
         {
             "name": "Catppuccin Latte",
-            "tab": {
+            "tab":
+            {
                 "background": "#EFF1F5FF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": {
+            "tabRow":
+            {
                 "background": "#E6E9EFFF",
                 "unfocusedBackground": "#DCE0E8FF"
             },
-            "window": {
-                "applicationTheme": "light"
+            "window":
+            {
+                "applicationTheme": "light",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
             }
         }
     ]
