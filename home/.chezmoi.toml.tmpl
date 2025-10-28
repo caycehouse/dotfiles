@@ -1,3 +1,4 @@
+{{- $codespaces:= env "CODESPACES" | not | not -}}
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
@@ -8,6 +9,8 @@
 {{- $kde := false -}}
 {{- $kubernetes := false -}}
 {{- $nvidia := false -}}
+
+{{- if not $codespaces -}}
 {{- if ne .chezmoi.os "windows" -}}
 {{-   if ne .chezmoi.os "darwin" -}}
 {{-     $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
@@ -18,6 +21,7 @@
 {{- end -}}
 
 {{- $gaming = promptBoolOnce . "gaming" "Will this machine be used for gaming" false -}}
+{{- end }}
 
 [data]
   gaming = {{ $gaming }}

@@ -17,20 +17,21 @@ on:
 
 jobs:
   install:
-    name: Test install.sh
+    name: Test install scripts
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
     env:
       CHEZMOI_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CODESPACES: true
     steps:
       - uses: actions/checkout@v4
       - name: Run install script
         run: ./install.sh
         shell: bash
-        if: ${{runner.os != 'Windows'}}
+        if: matrix.os != 'Windows'
       - name: Run install script
         run: ./install.ps1
         shell: pwsh
-        if: ${{runner.os == 'Windows'}}
+        if: matrix.os == 'Windows'
