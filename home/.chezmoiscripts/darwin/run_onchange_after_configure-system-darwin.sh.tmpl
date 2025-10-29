@@ -11,3 +11,7 @@ osascript -e 'tell application "System Preferences" to quit'
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool true
+killall Dock
