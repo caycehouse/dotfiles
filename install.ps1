@@ -1,10 +1,8 @@
 # Set the execution policy to allow scripts to run
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
-if (-not $env:CODESPACES -or $env:CODESPACES -eq 'false') {
-  # Install latest Powershell version
-  winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --silent --id Microsoft.Powershell --source winget
-}
+# Install latest Powershell version
+winget install --accept-package-agreements --accept-source-agreements --disable-interactivity --silent --id Microsoft.Powershell --source winget
 
 # Install chezmoi if necessary
 if (Get-Command -Name chezmoi -ErrorAction SilentlyContinue) {
