@@ -79,6 +79,8 @@
   # Name used in commit messages.
   name = Cayce House
   # Signing Key.
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1fE9oGJZyOliB/NeqUaz+QeYrwam+gcb+ZLrFRNp/l
-[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/work/"]
-  path = {{ .chezmoi.homeDir }}/.config/git/work
+  signingkey = {{ onepasswordRead "op://Private/id_ed25519/public key" }}
+{{- if (.isWorkComputer) }}
+[include]
+  path = "{{.chezmoi.homeDir}}/.config/git/work_config"
+{{- end }}

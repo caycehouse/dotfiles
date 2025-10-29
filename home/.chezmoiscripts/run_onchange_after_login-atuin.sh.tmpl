@@ -1,4 +1,4 @@
-{{- if lookPath "atuin" -}}
+{{- if (and (lookPath "atuin") (not .isWorkComputer)) -}}
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
