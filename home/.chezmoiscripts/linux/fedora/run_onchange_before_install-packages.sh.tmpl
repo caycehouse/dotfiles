@@ -22,7 +22,7 @@
   "telnet"
   "virt-manager" -}}
 
-{{ if .hasNvidia -}}
+{{ if (.hasNvidia) -}}
 {{   $packages = concat $packages (list
       "akmod-nvidia"
       "libva-nvidia-driver.{i686,x86_64}"

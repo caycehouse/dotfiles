@@ -1,14 +1,14 @@
 {{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
 {{- $osid := .chezmoi.os -}}
-{{- if hasKey .chezmoi.osRelease "id" -}}
+{{- if (hasKey .chezmoi.osRelease "id") -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
 {{- $kubernetes := false -}}
 {{- $hasNvidia := false -}}
 
-{{- if ne .chezmoi.os "windows" -}}
-{{-   if ne .chezmoi.os "darwin" -}}
+{{- if (ne .chezmoi.os "windows") -}}
+{{-   if (ne .chezmoi.os "darwin") -}}
 {{-     $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{-   end -}}
 {{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
@@ -20,7 +20,7 @@
   hasNvidia = {{ $hasNvidia }}
   osid = {{ $osid | quote }}
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if (eq .chezmoi.os "linux") -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 [onepassword]
   command = "/mnt/c/Users/cayce/AppData/Local/Microsoft/WinGet/Packages/AgileBits.1Password.CLI_Microsoft.Winget.Source_8wekyb3d8bbwe/op.exe"

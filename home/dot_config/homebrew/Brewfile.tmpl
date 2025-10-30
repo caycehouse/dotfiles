@@ -55,7 +55,7 @@ cask "silentknight"
 cask "visual-studio-code"
 cask "windows-app"
 
-{{- if .kubernetes }}
+{{- if (.kubernetes) }}
 tap "fluxcd/tap"
 tap "siderolabs/tap"
 brew "age"
@@ -83,7 +83,7 @@ brew "yamlfmt"
 brew "yamllint"
 {{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if (eq .chezmoi.os "darwin") }}
 brew "dockutil"
 brew "mas"
 cask "1password-cli"

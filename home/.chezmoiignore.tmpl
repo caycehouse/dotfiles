@@ -1,14 +1,14 @@
 # OS-specific exclusions
 
-{{ if ne .chezmoi.os "darwin" }}
+{{ if (ne .chezmoi.os "darwin") }}
 .chezmoiscripts/darwin/**
 {{ end }}
 
-{{ if ne .chezmoi.os "linux" }}
+{{ if (ne .chezmoi.os "linux") }}
 .chezmoiscripts/linux/**
 {{ end }}
 
-{{ if ne .chezmoi.os "windows" }}
+{{ if (ne .chezmoi.os "windows") }}
 .chezmoiscripts/windows/**
 AppData/**
 {{ else }}
@@ -25,11 +25,11 @@ AppData/**
 
 # Distribution-specific exclusions
 
-{{ if ne .osid "linux-fedora" }}
+{{ if (ne .osid "linux-fedora") }}
 .chezmoiscripts/linux/fedora/**
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if (eq .chezmoi.os "linux") -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 .config/ghostty/**
 {{   end -}}
@@ -38,6 +38,10 @@ AppData/**
 
 # Config-specific exclusions
 
-{{ if not .kubernetes }}
+{{ if (not .isWorkComputer) }}
+.config/atuin/**
+{{ end }}
+
+{{ if (not .kubernetes) }}
 .config/k9s/**
 {{ end }}
