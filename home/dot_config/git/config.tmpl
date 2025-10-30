@@ -80,7 +80,7 @@
   email = cayce@caycehouse.com
   # Name used in commit messages.
   name = Cayce House
-{{- if (.isWorkComputer) }}
+{{- if (not .isWorkComputer) }}
   # Signing Key.
   signingkey = {{ onepasswordRead "op://Private/id_ed25519/public key" }}
 {{- else }}
