@@ -1,7 +1,0 @@
-#!{{ lookPath "bash" }}
-
-set -eufo pipefail
-
-{{ if eq .chezmoi.hostname "kc-workstation" }}
-systemctl --user enable --now sunshine
-{{ end }}

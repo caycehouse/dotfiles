@@ -46,10 +46,6 @@
       "xorg-x11-drv-nvidia-cuda") -}}
 {{ end -}}
 
-{{ if eq .chezmoi.hostname "kc-workstation" -}}
-{{   $packages = mustAppend $packages "Sunshine" -}}
-{{ end -}}
-
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
