@@ -4,19 +4,16 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{- $kubernetes := false -}}
 {{- $hasNvidia := false -}}
 
 {{- if (ne .chezmoi.os "windows") -}}
 {{-   if (ne .chezmoi.os "darwin") -}}
 {{-     $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{-   end -}}
-{{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
 
 [data]
   isWorkComputer = {{ $isWorkComputer }}
-  kubernetes = {{ $kubernetes }}
   hasNvidia = {{ $hasNvidia }}
   osid = {{ $osid | quote }}
 

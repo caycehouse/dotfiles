@@ -1,4 +1,4 @@
-{{ if (ne .chezmoi.os "windows") -}}
+{{ if (ne .chezmoi.os "windows") }}
 [".config/bat/themes"]
     type = "archive"
     url = "https://github.com/catppuccin/bat/archive/main.tar.gz"
@@ -13,9 +13,6 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["**/themes/*.conf"]
-{{ end -}}
-
-{{ if (.kubernetes) -}}
 [".config/k9s/skins"]
     type = "archive"
     url = "https://github.com/catppuccin/k9s/archive/main.tar.gz"
@@ -23,4 +20,4 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["**/dist/*.yaml"]
-{{ end -}}
+{{ end }}

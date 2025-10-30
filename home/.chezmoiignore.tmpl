@@ -17,6 +17,7 @@ AppData/**
 .config/fish/**
 .config/ghostty/**
 .config/homebrew/**
+.config/k9s/**
 .config/starship.toml
 .config/topgrade.toml
 .vimrc
@@ -40,8 +41,4 @@ AppData/**
 
 {{ if (.isWorkComputer) }}
 .config/atuin/**
-{{ end }}
-
-{{ if (not .kubernetes) }}
-.config/k9s/**
 {{ end }}
