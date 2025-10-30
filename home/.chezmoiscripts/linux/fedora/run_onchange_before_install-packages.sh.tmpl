@@ -35,10 +35,6 @@
       "gnome-tweaks") -}}
 {{ end -}}
 
-{{ if .kde -}}
-{{   $packages = mustAppend $packages "wallpaper-engine-kde-plugin" -}}
-{{ end -}}
-
 {{ if .nvidia -}}
 {{   $packages = concat $packages (list
       "akmod-nvidia"

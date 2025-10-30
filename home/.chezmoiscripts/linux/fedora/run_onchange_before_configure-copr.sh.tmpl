@@ -1,10 +1,6 @@
 {{ $copr := list
   "mavit/discover-overlay" -}}
 
-{{ if .kde -}}
-{{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}
-{{ end -}}
-
 {{ if eq .chezmoi.hostname "kc-workstation" -}}
 {{   $copr = mustAppend $copr "lizardbyte/stable" -}}
 {{ end -}}
