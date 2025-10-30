@@ -5,12 +5,12 @@ Include ~/.ssh/1Password/config
 
 LogLevel ERROR
 
-{{ if ne .chezmoi.os "windows" -}}
+{{ if (ne .chezmoi.os "windows") -}}
 Host *
   ControlMaster auto
   ControlPath {{ .chezmoi.homeDir }}/.ssh/sockets/%r@%h-%p
   ControlPersist 600
-{{-   if eq .chezmoi.os "linux" }}
+{{-   if (eq .chezmoi.os "linux") }}
   IdentityAgent {{ .chezmoi.homeDir }}/.1password/agent.sock
 {{-   else if (.isWorkComputer) }}
 {{-   else }}
