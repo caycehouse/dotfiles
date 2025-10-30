@@ -24,12 +24,3 @@
     refreshPeriod = "168h"
     include = ["**/dist/*.yaml"]
 {{ end -}}
-
-{{ if .kde -}}
-[".local/share/konsole"]
-    type = "archive"
-    url = "https://github.com/catppuccin/konsole/archive/main.tar.gz"
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["**/themes/*.colorscheme"]
-{{ end -}}

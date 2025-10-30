@@ -41,11 +41,6 @@ AppData/**
 
 # Config-specific exclusions
 
-{{ if not .kde }}
-.config/konsolerc
-.local/share/konsole/**
-{{ end }}
-
 {{ if not .kubernetes }}
 .config/k9s/**
 {{ end }}
