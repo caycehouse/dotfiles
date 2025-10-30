@@ -6,8 +6,6 @@
 
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-.config/autostart/**
-.config/environment.d/**
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
@@ -21,7 +19,6 @@ AppData/**
 .config/homebrew/**
 .config/starship.toml
 .config/topgrade.toml
-.local/bin/**
 .vimrc
 {{ end }}
 
@@ -34,10 +31,10 @@ AppData/**
 
 {{ if eq .chezmoi.os "linux" -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-.config/autostart/**
 .config/ghostty/**
 {{   end -}}
 {{ end -}}
+
 
 # Config-specific exclusions
 
