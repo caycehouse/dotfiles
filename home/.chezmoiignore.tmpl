@@ -38,7 +38,7 @@ AppData/**
 
 # Config-specific exclusions
 
-{{ if (not .isWorkComputer) }}
+{{ if (.isWorkComputer) }}
 .config/atuin/**
 {{ end }}
 
