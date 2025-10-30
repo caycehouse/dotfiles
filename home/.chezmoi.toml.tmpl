@@ -5,11 +5,11 @@
 {{- end -}}
 
 {{- $kubernetes := false -}}
-{{- $nvidia := false -}}
+{{- $hasNvidia := false -}}
 
 {{- if ne .chezmoi.os "windows" -}}
 {{-   if ne .chezmoi.os "darwin" -}}
-{{-     $nvidia = promptBoolOnce . "nvidia" "Does this machine have a NVIDIA GPU" false -}}
+{{-     $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{-   end -}}
 {{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
 {{- end -}}
@@ -17,7 +17,7 @@
 [data]
   isWorkComputer = {{ $isWorkComputer }}
   kubernetes = {{ $kubernetes }}
-  nvidia = {{ $nvidia }}
+  hasNvidia = {{ $hasNvidia }}
   osid = {{ $osid | quote }}
 
 {{ if eq .chezmoi.os "linux" -}}
