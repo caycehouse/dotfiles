@@ -55,19 +55,6 @@ cask "silentknight"
 cask "visual-studio-code"
 cask "windows-app"
 
-{{- if .gaming }}
-cask "curseforge"
-cask "ea"
-cask "epic-games"
-cask "feed-the-beast"
-cask "gog-galaxy"
-cask "moonlight"
-cask "parsec"
-cask "prismlauncher"
-cask "steam"
-mas "Steam Link", id: 1246969117
-{{- end }}
-
 {{- if .kubernetes }}
 tap "fluxcd/tap"
 tap "siderolabs/tap"
@@ -103,9 +90,18 @@ cask "1password-cli"
 {{- end }}
 
 {{- if (not .isWorkComputer) }}
+cask "curseforge"
 cask "discord"
+cask "ea"
+cask "epic-games"
+cask "feed-the-beast"
+cask "gog-galaxy"
+cask "moonlight"
 cask "netnewswire"
 cask "obsidian"
+cask "parsec"
+cask "prismlauncher"
+cask "steam"
 mas "1Password for Safari", id: 1569813296
 mas "Amazon Kindle", id: 302584613
 mas "ColorSlurp", id: 1287239339
@@ -116,6 +112,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Sink It for Reddit", id: 6449873635
+mas "Steam Link", id: 1246969117
 mas "uBlock Origin Lite", id: 6745342698
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
