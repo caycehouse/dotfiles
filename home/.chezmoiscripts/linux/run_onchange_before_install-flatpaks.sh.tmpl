@@ -6,6 +6,10 @@
   "com.mattjakeman.ExtensionManager"
   "org.gnome.Extensions" -}}
 
+{{- if (.isWorkComputer) -}}
+{{   $flatpaks = concat $flatpaks (list "com.bitwarden.desktop") -}}
+{{- end -}}
+
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
