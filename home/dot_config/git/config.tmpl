@@ -33,7 +33,7 @@
 {{- if (not .isWorkComputer) }}
 {{-   if (eq .chezmoi.os "linux") }}
 {{-     if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-  program = "/mnt/c/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+  program = "/mnt/c/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
 {{-     else }}
   program = "/opt/1Password/op-ssh-sign"
 {{      end -}}
