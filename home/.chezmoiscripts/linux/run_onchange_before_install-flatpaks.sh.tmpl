@@ -1,26 +1,14 @@
-{{- if lookPath "flatpak" -}}
+{{- if (lookPath "flatpak") -}}
 {{ $flatpaks := list
-  "com.discordapp.Discord"
   "com.github.tchx84.Flatseal"
   "io.github.shiftey.Desktop"
   "it.mijorus.gearlever"
-  "md.obsidian.Obsidian"
-  "org.mozilla.Thunderbird"
-  "us.zoom.Zoom" -}}
+  "com.mattjakeman.ExtensionManager"
+  "org.gnome.Extensions" -}}
 
-{{ if .gaming -}}
-{{   $flatpaks = concat $flatpaks (list
-      "com.github.Matoking.protontricks"
-      "com.heroicgameslauncher.hgl"
-      "com.parsecgaming.parsec"
-      "net.davidotek.pupgui2") -}}
-{{ end -}}
-
-{{ if .gnome -}}
-{{   $flatpaks = concat $flatpaks (list
-      "com.mattjakeman.ExtensionManager"
-      "org.gnome.Extensions") -}}
-{{ end -}}
+{{- if (.isWorkComputer) -}}
+{{   $flatpaks = concat $flatpaks (list "com.bitwarden.desktop") -}}
+{{- end -}}
 
 #!{{ lookPath "bash" }}
 

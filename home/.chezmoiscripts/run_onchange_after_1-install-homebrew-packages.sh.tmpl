@@ -1,4 +1,4 @@
-{{- if lookPath "brew" -}}
+{{- if (lookPath "brew") -}}
 #!{{ lookPath "bash" }}
 
 set -Eeufo pipefail

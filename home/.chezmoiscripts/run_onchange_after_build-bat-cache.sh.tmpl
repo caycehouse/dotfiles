@@ -1,8 +1,8 @@
-{{- if lookPath "bat" -}}
+{{- if (lookPath "bat") -}}
 #!{{ lookPath "bash" }}
 
 # themeConfigFile hash: {{ include (joinPath .chezmoi.homeDir ".config/bat/themes/Catppuccin Latte.tmTheme") | sha256sum }}
-
+# bat version: {{ output "bat" "--version" | trim }}
 bat cache --build >/dev/null
 
 {{ end -}}

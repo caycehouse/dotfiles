@@ -8,10 +8,10 @@ for bindir in /usr/local/bin /opt/homebrew/bin
     test -d $bindir && fish_add_path --global $bindir
 end
 
-{{- if lookPath "/opt/homebrew/bin/brew" }}
+{{- if (lookPath "/opt/homebrew/bin/brew") }}
 eval (/opt/homebrew/bin/brew shellenv)
 {{- end }}
 
-{{- if lookPath "/home/linuxbrew/.linuxbrew/bin/brew" }}
+{{- if (lookPath "/home/linuxbrew/.linuxbrew/bin/brew") }}
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 {{- end }}

@@ -1,13 +1,16 @@
 {{ $packages := list
-  "1password-cli"
-  "1password"
   "code"
   "containerd.io"
-  "discover-overlay"
   "docker-buildx-plugin"
   "docker-ce-cli"
   "docker-ce"
   "docker-compose-plugin"
+  "gnome-shell-extension-appindicator"
+  "gnome-shell-extension-blur-my-shell"
+  "gnome-shell-extension-caffeine"
+  "gnome-shell-extension-dash-to-dock"
+  "gnome-shell-extension-drive-menu"
+  "gnome-tweaks"
   "google-chrome-stable"
   "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
   "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
@@ -19,36 +22,11 @@
   "telnet"
   "virt-manager" -}}
 
-{{ if .gaming -}}
-{{   $packages = concat $packages (list
-      "lutris"
-      "mangohud"
-      "steam") -}}
-{{ end -}}
-
-{{ if .gnome -}}
-{{   $packages = concat $packages (list
-      "gnome-shell-extension-appindicator"
-      "gnome-shell-extension-blur-my-shell"
-      "gnome-shell-extension-caffeine"
-      "gnome-shell-extension-dash-to-dock"
-      "gnome-shell-extension-drive-menu"
-      "gnome-tweaks") -}}
-{{ end -}}
-
-{{ if .kde -}}
-{{   $packages = mustAppend $packages "wallpaper-engine-kde-plugin" -}}
-{{ end -}}
-
-{{ if .nvidia -}}
+{{ if (.hasNvidia) -}}
 {{   $packages = concat $packages (list
       "akmod-nvidia"
       "libva-nvidia-driver.{i686,x86_64}"
       "xorg-x11-drv-nvidia-cuda") -}}
-{{ end -}}
-
-{{ if eq .chezmoi.hostname "kc-workstation" -}}
-{{   $packages = mustAppend $packages "Sunshine" -}}
 {{ end -}}
 
 #!{{ lookPath "bash" }}
