@@ -3,6 +3,10 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 
+{{- if (.isWorkComputer) }}
+set -gx SSH_AUTH_SOCK ~/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
+{{- end }}
+
 set -gx KUBE_EDITOR vim
 set -gx VISUAL "code --wait"
 set -gx EDITOR vim
