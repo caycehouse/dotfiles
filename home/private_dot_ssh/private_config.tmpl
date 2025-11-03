@@ -19,10 +19,9 @@ Host *
 {{-    end }}
 {{- end }}
 
-Match Address 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,fc00::/7
+Host 10.*.*.* 192.168.*.* 172.1[6-9].*.* 172.2[0-9].*.* 172.3[0-1].*.*
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
-    LogLevel ERROR
 
 {{- if (not .isWorkComputer) }}
 Host bakery
