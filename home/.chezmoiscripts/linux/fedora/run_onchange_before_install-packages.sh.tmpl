@@ -13,7 +13,6 @@
   "gnome-tweaks"
   "google-chrome-stable"
   "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
-  "--nodigest https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
   "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"
   "info"
   "lens"
@@ -38,3 +37,6 @@ set -eufo pipefail
 {{ template "sudo.tmpl" . }}dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
 {{ template "sudo.tmpl" . }}dnf install -y {{ $packages | join " " }}
+
+# https://www.reddit.com/r/Fedora/comments/1olj9a2/i_cant_use_microsoft_fonts_after_updating_to
+{{ template "sudo.tmpl" . }}rpm --nodigest -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
