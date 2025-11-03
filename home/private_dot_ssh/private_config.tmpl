@@ -19,16 +19,12 @@ Host *
 {{-    end }}
 {{- end }}
 
-Host 192.168.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-Host 172.16.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-Host 10.*.*.*
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
+Match Address 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,fc00::/7
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR
 
+{{- if (not .isWorkComputer) }}
 Host bakery
   HostName bakery
   User admin
@@ -36,3 +32,4 @@ Host bakery
 Host octopi
   HostName octopi
   User caycehouse
+{{- end }}
