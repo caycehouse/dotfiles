@@ -1,5 +1,5 @@
 # Theme config
-theme = catppuccin-latte.conf
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 
 # Fonts
 font-family = FiraCode Nerd Font
