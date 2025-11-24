@@ -29,3 +29,7 @@ dockutil --add '/Applications/Google Chrome.app' --label 'Google Chrome' --repla
 dockutil --add '/Applications/Ghostty.app' --label 'Ghostty' --replacing 'Ghostty' --no-restart
 dockutil --add '/Applications/Visual Studio Code.app' --label 'Visual Studio Code' --replacing 'Visual Studio Code' --no-restart
 dockutil --add '/Applications/Keka.app' --label 'Keka' --replacing 'Keka' --no-restart
+
+{{- if (not .isWorkComputer) }}
+dockutil --add '/Applications/GeForceNOW.app' --label 'NVIDIA GeForce NOW' --replacing 'NVIDIA GeForce NOW' --no-restart
+{{- end }}
