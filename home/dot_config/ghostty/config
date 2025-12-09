@@ -22,4 +22,4 @@ window-width = 180
 
 # Cursor settings
 cursor-style = block
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor, ssh-env, ssh-terminfo, sudo
