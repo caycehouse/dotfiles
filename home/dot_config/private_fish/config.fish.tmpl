@@ -1,3 +1,9 @@
 set fish_greeting ""
 
 fish_config theme choose "Catppuccin Latte"
+
+{{ if (lookPath "lms") -}}
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/caycehouse/.lmstudio/bin
+# End of LM Studio CLI section
+{{- end }}
