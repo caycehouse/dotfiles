@@ -1,6 +1,7 @@
 {
-    "recommendations": [
-        "pkief.material-icon-theme",
-        "samuelcolvin.jinjahtml"
-    ]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "pkief.material-icon-theme",
+    "samuelcolvin.jinjahtml"
+  ]
 }
