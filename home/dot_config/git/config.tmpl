@@ -75,9 +75,13 @@
   sort = -version:refname
 [url "ssh://git@github.com/"]
   pushInsteadOf = https://github.com/
+{{- if .workGithubUrl }}
+[url "ssh://git@{{ .workGithubUrl }}/"]
+  pushInsteadOf = https://{{ .workGithubUrl }}/
+{{- end }}
 [user]
   # Email used in commit messages.
-  email = cayce@caycehouse.com
+  email = {{ .email }}
   # Name used in commit messages.
   name = Cayce House
   # Signing Key.
@@ -85,6 +89,4 @@
   signingkey = {{ onepasswordRead "op://Private/id_ed25519/public key" }}
 {{- else }}
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMCpydEmqgALalmzUobU99MVGDOtErf4c8XeymjDnqWZ
-[include]
-  path = "{{.chezmoi.homeDir}}/.config/git/work_config"
 {{- end }}

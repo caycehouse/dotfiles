@@ -1,4 +1,5 @@
 .config/ghostty/themes
+.config/git/work_config
 .gitconfig
 .gitconfig_work
 .gitignore_global

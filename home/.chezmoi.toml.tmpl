@@ -12,10 +12,20 @@
 {{-   end -}}
 {{- end -}}
 
+{{- $email := "cayce@caycehouse.com" -}}
+{{- $workGitUrl := "" -}}
+
+{{-   if $isWorkComputer -}}
+{{-     $email = promptStringOnce . "email" "What is your work email address" $email -}}
+{{-     $workGitUrl = promptStringOnce . "workGitUrl" "What is your work Git SSH URL (e.g. git.work.com)" "" -}}
+{{-   end -}}
+
 [data]
+  email = {{ $email | quote }}
   isWorkComputer = {{ $isWorkComputer }}
   hasNvidia = {{ $hasNvidia }}
   osid = {{ $osid | quote }}
+  workGitUrl = {{ $workGitUrl | quote }}
 
 {{ if (eq .chezmoi.os "linux") -}}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
