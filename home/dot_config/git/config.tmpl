@@ -65,7 +65,7 @@
   # Sort tags by newest first
   sort = -version:refname
 [url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
+  pushInsteadOf = https://github.com/
 {{- if .workGitUrl }}
 [url "ssh://git@{{ .workGitUrl }}/"]
   insteadOf = https://{{ .workGitUrl }}/
