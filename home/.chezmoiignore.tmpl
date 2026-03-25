@@ -8,34 +8,12 @@
 .chezmoiscripts/linux/**
 {{ end }}
 
-{{ if (ne .chezmoi.os "windows") }}
-.chezmoiscripts/windows/**
-AppData/**
-{{ else }}
-.config/atuin/**
-.config/bat/**
-.config/fish/**
-.config/ghostty/**
-.config/homebrew/**
-.config/k9s/**
-.config/lsd/**
-.config/starship.toml
-.config/topgrade.toml
-.vimrc
-{{ end }}
-
 
 # Distribution-specific exclusions
 
 {{ if (ne .osid "linux-fedora") }}
 .chezmoiscripts/linux/fedora/**
 {{ end }}
-
-{{ if (eq .chezmoi.os "linux") -}}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-.config/ghostty/**
-{{   end -}}
-{{ end -}}
 
 
 # Config-specific exclusions

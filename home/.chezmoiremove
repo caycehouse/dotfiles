@@ -3,3 +3,5 @@
 .gitconfig
 .gitconfig_work
 .gitignore_global
+AppData
+.chezmoiscripts/windows

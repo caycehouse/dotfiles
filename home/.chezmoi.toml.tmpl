@@ -6,10 +6,8 @@
 
 {{- $hasNvidia := false -}}
 
-{{- if (ne .chezmoi.os "windows") -}}
-{{-   if (ne .chezmoi.os "darwin") -}}
-{{-     $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
-{{-   end -}}
+{{- if (eq .chezmoi.os "linux") -}}
+{{-   $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{- end -}}
 
 {{- $email := "cayce@caycehouse.com" -}}
@@ -26,10 +24,3 @@
   hasNvidia = {{ $hasNvidia }}
   osid = {{ $osid | quote }}
   workGitUrl = {{ $workGitUrl | quote }}
-
-{{ if (eq .chezmoi.os "linux") -}}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-[onepassword]
-  command = "op.exe"
-{{   end -}}
-{{ end -}}

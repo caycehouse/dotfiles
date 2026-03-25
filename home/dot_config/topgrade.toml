@@ -14,4 +14,3 @@ disable = ["containers", "helm"]
 
 # Some vim plugins don't play nice.
 ignore_failures = ["vim"]
-

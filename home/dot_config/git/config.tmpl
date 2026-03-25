@@ -9,9 +9,6 @@
 [core]
   # Exclude everything this file. Used for general exclusions.
   excludesfile = {{ .chezmoi.homeDir }}/.config/git/ignore
-{{ if (eq .chezmoi.os "windows") }}
-  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
-{{ end -}}
 [diff "ansible-vault"]
   cachetextconv = false
   textconv = ansible-vault view
@@ -32,14 +29,8 @@
 [gpg "ssh"]
 {{- if (not .isWorkComputer) }}
 {{-   if (eq .chezmoi.os "linux") }}
-{{-     if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-  program = "op-ssh-sign-wsl.exe"
-{{-     else }}
   program = "/opt/1Password/op-ssh-sign"
-{{      end -}}
-{{-   else if (eq .chezmoi.os "windows") }}
-  program = "op-ssh-sign.exe"
-{{-   else }}
+{{-   else if (eq .chezmoi.os "darwin") }}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 {{-   end }}
 {{- end }}
