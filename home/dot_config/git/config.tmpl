@@ -74,10 +74,10 @@
   # Sort tags by newest first
   sort = -version:refname
 [url "ssh://git@github.com/"]
-  pushInsteadOf = https://github.com/
+  insteadOf = https://github.com/
 {{- if .workGitUrl }}
 [url "ssh://git@{{ .workGitUrl }}/"]
-  pushInsteadOf = https://{{ .workGitUrl }}/
+  insteadOf = https://{{ .workGitUrl }}/
 {{- end }}
 [user]
   # Email used in commit messages.
