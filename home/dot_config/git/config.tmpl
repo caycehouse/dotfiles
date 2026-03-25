@@ -75,9 +75,9 @@
   sort = -version:refname
 [url "ssh://git@github.com/"]
   pushInsteadOf = https://github.com/
-{{- if .workGithubUrl }}
-[url "ssh://git@{{ .workGithubUrl }}/"]
-  pushInsteadOf = https://{{ .workGithubUrl }}/
+{{- if .workGitUrl }}
+[url "ssh://git@{{ .workGitUrl }}/"]
+  pushInsteadOf = https://{{ .workGitUrl }}/
 {{- end }}
 [user]
   # Email used in commit messages.
