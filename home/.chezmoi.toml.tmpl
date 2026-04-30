@@ -1,10 +1,17 @@
-{{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
+{{- /* 1. Initialize Reasonable Defaults (Used for Codespaces/Headless) */ -}}
+{{- $email := "cayce@caycehouse.com" -}}
+{{- $hasNvidia := false -}}
+{{- $isWorkComputer := false -}}
+{{- $workGitUrl := "" -}}
 {{- $osid := .chezmoi.os -}}
-{{- if (hasKey .chezmoi.osRelease "id") -}}
+
+{{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{- $hasNvidia := false -}}
+{{- /* 2. Override Defaults ONLY if the Session is Interactive */ -}}
+{{- if stdinIsATTY -}}
+{{-   $isWorkComputer = promptBoolOnce . "isWorkComputer" "Is this your work computer" false -}}
 
 {{- if (eq .chezmoi.os "linux") -}}
 {{-   $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
@@ -17,10 +24,11 @@
 {{-     $email = promptStringOnce . "email" "What is your work email address" $email -}}
 {{-     $workGitUrl = promptStringOnce . "workGitUrl" "What is your work Git SSH URL (e.g. git.work.com)" "" -}}
 {{-   end -}}
+{{- end }}
 
 [data]
   email = {{ $email | quote }}
-  isWorkComputer = {{ $isWorkComputer }}
   hasNvidia = {{ $hasNvidia }}
+  isWorkComputer = {{ $isWorkComputer }}
   osid = {{ $osid | quote }}
   workGitUrl = {{ $workGitUrl | quote }}
