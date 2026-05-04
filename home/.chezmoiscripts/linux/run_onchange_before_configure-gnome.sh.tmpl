@@ -1,0 +1,6 @@
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+# Disable version-check for gnome extensions.
+gsettings set org.gnome.shell disable-extension-version-validation true
