@@ -17,9 +17,6 @@
 {{-   $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
 {{- end -}}
 
-{{- $email := "cayce@caycehouse.com" -}}
-{{- $workGitUrl := "" -}}
-
 {{-   if $isWorkComputer -}}
 {{-     $email = promptStringOnce . "email" "What is your work email address" $email -}}
 {{-     $workGitUrl = promptStringOnce . "workGitUrl" "What is your work Git SSH URL (e.g. git.work.com)" "" -}}
