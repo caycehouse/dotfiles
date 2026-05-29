@@ -10,9 +10,9 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 echo "Running brew bundle"
-brew bundle --all
+brew bundle
 
 echo "Running brew bundle cleanup"
-brew bundle cleanup --brews --casks --taps --mas --no-vscode --force || true
+brew bundle cleanup --brews --casks --taps --mas --force || true
 
 {{ end -}}
