@@ -1,0 +1,9 @@
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+# Allow Electron 28 and up apps to run on Wayland.
+if ! grep -q '^ELECTRON_OZONE_PLATFORM_HINT=' /etc/environment 2>/dev/null; then
+  echo '# Allow Electron 28 and up apps to run on Wayland' | {{ template "sudo.tmpl" . }}tee -a /etc/environment >/dev/null
+  echo 'ELECTRON_OZONE_PLATFORM_HINT=auto' | {{ template "sudo.tmpl" . }}tee -a /etc/environment >/dev/null
+fi

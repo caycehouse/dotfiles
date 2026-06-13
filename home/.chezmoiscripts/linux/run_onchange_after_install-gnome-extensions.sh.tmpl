@@ -1,0 +1,32 @@
+{{ $extensions := list
+  "clipboard-indicator@tudmotu.com"
+  "hide-minimized@danigm.net" -}}
+
+#!{{ lookPath "bash" }}
+
+set -eufo pipefail
+
+# Install GNOME Shell extensions that are not packaged for Fedora, pulling the
+# build that matches the running shell from extensions.gnome.org.
+shell_version="$(gnome-shell --version | grep -oE '[0-9]+' | head -1)"
+
+for uuid in {{ $extensions | join " " }}; do
+  if ! gnome-extensions list 2>/dev/null | grep -qx "$uuid"; then
+    info="$(curl -fsS "https://extensions.gnome.org/extension-info/?uuid=${uuid}&shell_version=${shell_version}")"
+    path="$(echo "$info" | python3 -c 'import sys,json; print(json.load(sys.stdin)["download_url"])')"
+    tmp="$(mktemp --suffix=.zip)"
+    curl -fsS -o "$tmp" "https://extensions.gnome.org${path}"
+    gnome-extensions install --force "$tmp"
+    rm -f "$tmp"
+  fi
+  # enable() fails until the shell reloads the freshly-installed extension, so
+  # fall back to registering the UUID directly for the next login.
+  gnome-extensions enable "$uuid" 2>/dev/null || {
+    enabled="$(gsettings get org.gnome.shell enabled-extensions)"
+    case "$enabled" in
+      *"'$uuid'"*) ;;
+      "@as []"|"[]") gsettings set org.gnome.shell enabled-extensions "['$uuid']" ;;
+      *) gsettings set org.gnome.shell enabled-extensions "${enabled%]}, '$uuid']" ;;
+    esac
+  }
+done
