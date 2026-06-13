@@ -11,5 +11,8 @@
 set -eufo pipefail
 
 {{ range $repos }}
+{{- if not (hasPrefix "http" .) }}
+# repofile hash: {{ include . | sha256sum }}
+{{- end }}
 {{ template "sudo.tmpl" $ }}dnf config-manager addrepo --overwrite --from-repofile={{ . }}
 {{ end }}
