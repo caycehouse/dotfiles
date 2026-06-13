@@ -2,13 +2,7 @@
 
 set -Eeuo pipefail
 
-declare -r DOTFILES_REPO_URL="https://github.com/caycehouse/dotfiles"
-
-function get_os_type() {
-  uname
-}
-
-declare ostype="$(get_os_type)"
+ostype="$(uname)"
 if [ "${ostype}" == "Darwin" ]; then
   # Install XCode Command Line Tools if necessary
   declare git_cmd_path="/Library/Developer/CommandLineTools/usr/bin/git"
@@ -37,7 +31,7 @@ elif [ "${ostype}" == "Linux" ]; then
   fi
 else
     echo "Unknown OS type: ${ostype}"
-    return 1
+    exit 1
 fi
 
 # Install Homebrew if necessary

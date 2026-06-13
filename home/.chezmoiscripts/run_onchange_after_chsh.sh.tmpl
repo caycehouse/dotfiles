@@ -1,8 +1,18 @@
 {{- if (lookPath "fish") -}}
 #!{{ lookPath "bash" }}
 
-if [[ "$SHELL" != "$(which fish)" ]]; then
-    {{ template "sudo.tmpl" . }}chsh -s "$(which fish)" "$(whoami)"
+set -eufo pipefail
+
+fish_path="$(command -v fish)"
+
+# chsh refuses a shell that isn't listed in /etc/shells, and Homebrew does not
+# register its fish there, so add it before switching.
+if ! grep -qxF "$fish_path" /etc/shells; then
+    echo "$fish_path" | {{ template "sudo.tmpl" . }}tee -a /etc/shells >/dev/null
+fi
+
+if [[ "${SHELL:-}" != "$fish_path" ]]; then
+    {{ template "sudo.tmpl" . }}chsh -s "$fish_path" "$(whoami)"
 fi
 
 {{ end -}}

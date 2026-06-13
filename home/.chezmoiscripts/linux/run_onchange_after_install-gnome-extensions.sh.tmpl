@@ -1,3 +1,4 @@
+{{- if (lookPath "gnome-extensions") -}}
 {{ $extensions := list
   "clipboard-indicator@tudmotu.com"
   "hide-minimized@danigm.net" -}}
@@ -30,3 +31,4 @@ for uuid in {{ $extensions | join " " }}; do
     esac
   }
 done
+{{ end -}}
