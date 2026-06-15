@@ -20,11 +20,6 @@ elif [ "${ostype}" == "Linux" ]; then
       elif command -v dnf >/dev/null 2>&1; then
           sudo dnf group install -y development-tools
           sudo dnf install -y procps-ng curl file git
-      elif command -v yum >/dev/null 2>&1; then
-          sudo yum groupinstall -y 'Development Tools'
-          sudo yum install -y procps-ng curl file git
-      elif command -v pacman >/dev/null 2>&1; then
-          sudo pacman -S --noconfirm base-devel procps-ng curl file git
       else
           echo "Unknown package manager, skipping build tools installation"
       fi

@@ -1,3 +1,5 @@
+.config/fish/functions/ms.fish
+.config/fish/functions/kubecolor.fish
 .config/ghostty/themes
 .config/git/work_config
 .gitconfig

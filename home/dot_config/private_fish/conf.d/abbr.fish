@@ -32,6 +32,10 @@ if type -q lsd
     abbr ls lsd
 end
 
+if type -q mise
+    abbr ms mise
+end
+
 if type -q prettyping
     abbr ping "prettyping --nolegend"
 end
