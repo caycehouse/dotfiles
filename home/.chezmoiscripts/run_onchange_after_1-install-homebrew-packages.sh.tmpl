@@ -11,7 +11,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 echo "Running brew bundle"
-brew bundle
+brew bundle --no-upgrade
 
 echo "Running brew bundle cleanup"
 brew bundle cleanup --brews --casks --taps --mas --force || true
