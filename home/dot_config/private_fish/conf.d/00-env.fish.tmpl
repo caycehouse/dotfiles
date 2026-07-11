@@ -23,9 +23,9 @@ set -gx FZF_DEFAULT_OPTS "\
 --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
 --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 
-{{ if (lookPath "bat") -}}
-set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-{{- end }}
+if type -q bat
+    set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+end
 
 fish_add_path --global "{{ .chezmoi.homeDir }}/.local/bin"
 fish_add_path --global "{{ .chezmoi.homeDir }}/.cargo/bin"
