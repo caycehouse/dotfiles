@@ -1,7 +1,8 @@
-{{- if (lookPath "brew") -}}
-#!{{ lookPath "bash" }}
+#!/usr/bin/env bash
 
 set -Eeufo pipefail
+
+command -v brew >/dev/null 2>&1 || exit 0
 
 # Brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
 export HOMEBREW_BUNDLE_FILE={{ .chezmoi.homeDir }}/.config/homebrew/Brewfile
@@ -14,5 +15,3 @@ brew bundle
 
 echo "Running brew bundle cleanup"
 brew bundle cleanup --brews --casks --taps --mas --force || true
-
-{{ end -}}

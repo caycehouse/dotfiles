@@ -1,7 +1,8 @@
-{{- if (lookPath "fish") -}}
-#!{{ lookPath "bash" }}
+#!/usr/bin/env bash
 
 set -eufo pipefail
+
+command -v fish >/dev/null 2>&1 || exit 0
 
 fish_path="$(command -v fish)"
 
@@ -14,5 +15,3 @@ fi
 if [[ "${SHELL:-}" != "$fish_path" ]]; then
     {{ template "sudo.tmpl" . }}chsh -s "$fish_path" "$(whoami)"
 fi
-
-{{ end -}}

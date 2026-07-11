@@ -10,7 +10,7 @@
 {{   $flatpaks = concat $flatpaks (list "com.bitwarden.desktop") -}}
 {{- end -}}
 
-#!{{ lookPath "bash" }}
+#!/usr/bin/env bash
 
 set -eufo pipefail
 
