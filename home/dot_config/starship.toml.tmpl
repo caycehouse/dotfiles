@@ -7,10 +7,34 @@ add_newline = true
 # Set color palette to catppuccin latte
 palette = "catppuccin_latte"
 
+format = """\
+  $username\
+  $hostname\
+  $directory\
+  $docker_context\
+  $kubernetes\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
+  $python\
+  $character\
+  """
+
+right_format = "$cmd_duration"
+
+[cmd_duration]
+min_time = 2000
+format = '\[[$duration]($style)\]'
+style = "bold yellow"
+
 [directory]
 home_symbol = " "
 read_only = " 󰌾"
 truncation_length = 8
+
+[directory.substitutions]
+"~/.local/share/chezmoi" = "chezmoi"
 
 [docker_context]
 symbol = " "
@@ -19,13 +43,29 @@ symbol = " "
 symbol = " "
 
 [git_commit]
-only_detached = false
+only_detached = true
 tag_symbol = " "
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+[hostname]
+ssh_only = true
+ssh_symbol = " "
+format = "[$ssh_symbol$hostname]($style) "
+style = "bold yellow"
 
 [kubernetes]
 disabled = false
 symbol = "󱃾 "
 format = '\[[$symbol$context( \($namespace\))]($style)\] '
+# Only show the k8s segment inside cluster/chart directories.
+# detect_env_vars is intentionally omitted: with detect_files/folders set,
+# starship never consults it (Option::or short-circuits on Some(false)).
+detect_files = ["kustomization.yaml", "Chart.yaml", "helmfile.yaml"]
+detect_folders = ["kubernetes", "k8s"]
 
 [palettes.catppuccin_latte]
 rosewater = "#dc8a78"
