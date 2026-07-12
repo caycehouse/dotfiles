@@ -20,11 +20,13 @@ function commit --description 'git conventional commits'
         if string match -q '*-*' $title
             set type (string trim (string split "-" "$title" -f1))
             set scope (string trim (string split "-" "$title" -m1 -f2))
-            set title "$type($scope)"
-            if string match -q '*!' "$scope"
+            set breaking ""
+            if string match -q '*!' "$type"; or string match -q '*!' "$scope"
+                set breaking "!"
+                set type (string trim --chars="!" $type)
                 set scope (string trim --chars="!" $scope)
-                set title "$type($scope)!"
             end
+            set title "$type($scope)$breaking"
         end
         if not string length -q $long
             git commit -s -m "$title: $short"

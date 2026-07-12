@@ -25,11 +25,11 @@ for label in "${remove_labels[@]}"; do
   dockutil --no-restart --remove "${label}" || true
 done
 
-dockutil --add '/Applications/Google Chrome.app' --label 'Google Chrome' --replacing 'Google Chrome' --position 2 --no-restart
-dockutil --add '/Applications/Ghostty.app' --label 'Ghostty' --replacing 'Ghostty' --no-restart
-dockutil --add '/Applications/Visual Studio Code.app' --label 'Visual Studio Code' --replacing 'Visual Studio Code' --no-restart
-dockutil --add '/Applications/Keka.app' --label 'Keka' --replacing 'Keka' --no-restart
+dockutil --add '/Applications/Google Chrome.app' --label 'Google Chrome' --replacing 'Google Chrome' --position 2 --no-restart || true
+dockutil --add '/Applications/Ghostty.app' --label 'Ghostty' --replacing 'Ghostty' --no-restart || true
+dockutil --add '/Applications/Visual Studio Code.app' --label 'Visual Studio Code' --replacing 'Visual Studio Code' --no-restart || true
+dockutil --add '/Applications/Keka.app' --label 'Keka' --replacing 'Keka' --no-restart || true
 
 {{- if (not .isWorkComputer) }}
-dockutil --add '/Applications/GeForceNOW.app' --label 'NVIDIA GeForce NOW' --replacing 'NVIDIA GeForce NOW' --no-restart
+dockutil --add '/Applications/GeForceNOW.app' --label 'NVIDIA GeForce NOW' --replacing 'NVIDIA GeForce NOW' --no-restart || true
 {{- end }}
