@@ -10,6 +10,22 @@ export HOMEBREW_CASK_OPTS=--no-quarantine
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+if ! command -v kubectl-krew >/dev/null 2>&1; then
+  brew install krew
+fi
+
+ensure_krew_index() {
+  local name=$1
+  local url=$2
+
+  if ! kubectl-krew index list | awk -v name="$name" 'NR > 1 && $1 == name { found=1 } END { exit !found }'; then
+    kubectl-krew index add "$name" "$url"
+  fi
+}
+
+ensure_krew_index kopiur https://github.com/home-operations/kopiur.git
+ensure_krew_index netshoot https://github.com/nilic/kubectl-netshoot.git
+
 echo "Running brew bundle"
 brew bundle --no-upgrade
 
