@@ -1,6 +1,7 @@
 {{- /* 1. Initialize Reasonable Defaults (Used for Codespaces/Headless) */ -}}
 {{- $email := "cayce@caycehouse.com" -}}
 {{- $hasNvidia := false -}}
+{{- $nvidia580xx := false -}}
 {{- $isWorkComputer := false -}}
 {{- $workGitUrl := "" -}}
 {{- $osid := .chezmoi.os -}}
@@ -15,6 +16,9 @@
 
 {{- if (eq .chezmoi.os "linux") -}}
 {{-   $hasNvidia = promptBoolOnce . "hasNvidia" "Does this machine have a NVIDIA GPU" false -}}
+{{-   if $hasNvidia -}}
+{{-     $nvidia580xx = promptBoolOnce . "nvidia580xx" "Does this machine require the NVIDIA 580xx driver" false -}}
+{{-   end -}}
 {{- end -}}
 
 {{-   if $isWorkComputer -}}
@@ -26,6 +30,7 @@
 [data]
   email = {{ $email | quote }}
   hasNvidia = {{ $hasNvidia }}
+  nvidia580xx = {{ $nvidia580xx }}
   isWorkComputer = {{ $isWorkComputer }}
   osid = {{ $osid | quote }}
   workGitUrl = {{ $workGitUrl | quote }}

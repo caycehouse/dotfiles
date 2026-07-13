@@ -21,10 +21,14 @@
   "virt-manager" -}}
 
 {{ if (.hasNvidia) -}}
+{{   $nvidiaSuffix := "" -}}
+{{   if .nvidia580xx -}}
+{{     $nvidiaSuffix = "-580xx" -}}
+{{   end -}}
 {{   $packages = concat $packages (list
-      "akmod-nvidia"
+      (printf "akmod-nvidia%s" $nvidiaSuffix)
       "libva-nvidia-driver.{i686,x86_64}"
-      "xorg-x11-drv-nvidia-cuda") -}}
+      (printf "xorg-x11-drv-nvidia%s-cuda" $nvidiaSuffix)) -}}
 {{ end -}}
 
 #!/usr/bin/env bash

@@ -55,6 +55,7 @@ Defined in `home/.chezmoi.toml.tmpl` and available in all `.tmpl` files:
 |---|---|---|
 | `.isWorkComputer` | bool | Work vs. personal machine |
 | `.hasNvidia` | bool | Linux only: NVIDIA GPU present |
+| `.nvidia580xx` | bool | Linux only: use RPM Fusion's NVIDIA 580xx driver branch |
 | `.osid` | string | `"darwin"` or `"linux-fedora"` |
 | `.email` | string | Git/identity email |
 | `.workGitUrl` | string | Work Git SSH host |
