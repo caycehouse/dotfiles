@@ -1,0 +1,42 @@
+{
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/DietrichGebert/ponytail.git"
+      }
+    },
+    "spritecook": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/SpriteCook/claude-plugin.git"
+      }
+    }
+  },
+  "syntaxHighlightingDisabled": false,
+  "theme": "auto",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "skillOverrides": {
+    "agents-sdk": "off",
+    "cloudflare": "off",
+    "cloudflare-email-service": "off",
+    "durable-objects": "off",
+    "sandbox-sdk": "off",
+    "turnstile-spin": "off",
+    "web-perf": "off",
+    "workers-best-practices": "off",
+    "wrangler": "off"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "cleanupPeriodDays": 90
+}
