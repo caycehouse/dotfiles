@@ -1,11 +1,9 @@
 {
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+  "cleanupPeriodDays": 90,
+  "attribution": {
+    "commit": "",
+    "pr": ""
   },
-  "syntaxHighlightingDisabled": false,
-  "theme": "auto",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "permissions": {
     "defaultMode": "auto"
   },
@@ -20,9 +18,20 @@
     "workers-best-practices": "off",
     "wrangler": "off"
   },
-  "attribution": {
-    "commit": "",
-    "pr": ""
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "spritecook@spritecook": true
   },
-  "cleanupPeriodDays": 90
+  "extraKnownMarketplaces": {
+    "spritecook": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/SpriteCook/claude-plugin.git"
+      }
+    }
+  },
+  "syntaxHighlightingDisabled": false,
+  "theme": "auto",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
