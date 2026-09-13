@@ -34,6 +34,8 @@
   "theme": "auto",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "outputStyle": "Concise"
+  "outputStyle": "Concise",
+  "sandbox": {
+    "enabled": true
+  }
 }
-
