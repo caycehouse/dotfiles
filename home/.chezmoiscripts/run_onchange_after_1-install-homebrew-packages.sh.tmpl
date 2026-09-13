@@ -8,6 +8,7 @@ command -v brew >/dev/null 2>&1 || exit 0
 export HOMEBREW_BUNDLE_FILE={{ .chezmoi.homeDir }}/.config/homebrew/Brewfile
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 if ! command -v kubectl-krew >/dev/null 2>&1; then
   brew install krew
