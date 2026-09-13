@@ -27,6 +27,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
+  allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 {{- if (not .isWorkComputer) }}
 {{-   if (eq .chezmoi.os "linux") }}
   program = "/opt/1Password/op-ssh-sign"
