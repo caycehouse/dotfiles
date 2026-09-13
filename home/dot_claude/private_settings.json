@@ -33,5 +33,7 @@
   "syntaxHighlightingDisabled": false,
   "theme": "auto",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "outputStyle": "Concise"
 }
+
