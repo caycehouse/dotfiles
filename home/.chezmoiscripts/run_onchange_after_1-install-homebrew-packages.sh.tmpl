@@ -6,7 +6,6 @@ command -v brew >/dev/null 2>&1 || exit 0
 
 # Brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
 export HOMEBREW_BUNDLE_FILE={{ .chezmoi.homeDir }}/.config/homebrew/Brewfile
-export HOMEBREW_CASK_OPTS=--no-quarantine
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
