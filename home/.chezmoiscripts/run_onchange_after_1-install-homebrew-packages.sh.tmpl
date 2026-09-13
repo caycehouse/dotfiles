@@ -8,6 +8,8 @@ command -v brew >/dev/null 2>&1 || exit 0
 export HOMEBREW_BUNDLE_FILE={{ .chezmoi.homeDir }}/.config/homebrew/Brewfile
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
+# Homebrew stores tap trust under XDG_CONFIG_HOME when set; match fish so Brewfile trust is visible there.
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 if ! command -v kubectl-krew >/dev/null 2>&1; then
