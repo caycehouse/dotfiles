@@ -32,5 +32,8 @@ ensure_krew_index netshoot https://github.com/nilic/kubectl-netshoot.git
 echo "Running brew bundle"
 brew bundle --no-upgrade
 
+echo "Running brew cleanup"
+brew cleanup || true
+
 echo "Running brew bundle cleanup"
 brew bundle cleanup --brews --casks --taps --mas || true
