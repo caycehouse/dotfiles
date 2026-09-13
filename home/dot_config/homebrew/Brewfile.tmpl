@@ -84,7 +84,8 @@ cask "microsoft-powerpoint"
 cask "microsoft-teams"
 cask "microsoft-word"
 cask "omnidisksweeper"
-cask "onedrive"
+# Non-empty args stop brew bundle from batching this cask; the batched install drops --cask and resolves the onedrive-cli formula alias.
+cask "onedrive", args: { adopt: true }
 cask "onyx"
 cask "orbstack"
 cask "pearcleaner"
