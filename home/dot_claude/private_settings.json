@@ -30,12 +30,12 @@
       }
     }
   },
-  "syntaxHighlightingDisabled": false,
-  "theme": "auto",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "outputStyle": "Concise",
   "sandbox": {
     "enabled": true
-  }
+  },
+  "syntaxHighlightingDisabled": false,
+  "theme": "auto",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
