@@ -7,6 +7,10 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "env": {
+    "MEMINI_BASE_URL": "https://memini.housefam.casa",
+    "MEMINI_HOME": "personal/cayce"
+  },
   "skillOverrides": {
     "agents-sdk": "off",
     "cloudflare": "off",
@@ -20,13 +24,20 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "spritecook@spritecook": true
+    "spritecook@spritecook": true,
+    "memini@memini": true
   },
   "extraKnownMarketplaces": {
     "spritecook": {
       "source": {
         "source": "git",
         "url": "https://github.com/SpriteCook/claude-plugin.git"
+      }
+    },
+    "memini": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/eleboucher/memini.git"
       }
     }
   },

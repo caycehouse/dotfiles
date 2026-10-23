@@ -1,0 +1,12 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Antigravity edits this file itself, so merge instead of replacing it. */ -}}
+{{- $cfg := dict -}}
+{{- if .chezmoi.stdin -}}
+{{-   $cfg = fromJson .chezmoi.stdin -}}
+{{- end -}}
+{{- $cfg = setValueAtPath (list "mcpServers" "memini") (dict
+      "serverUrl" "https://memini.housefam.casa/mcp"
+      "headers" (dict
+        "X-Memini-Home" "personal/cayce"
+        "X-Memini-Namespace" "personal/cayce")) $cfg -}}
+{{- toPrettyJson "\t" $cfg -}}

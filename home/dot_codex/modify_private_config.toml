@@ -1,0 +1,49 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Codex writes its own state (model, trust, plugins) into this file, so merge instead of replacing it. */ -}}
+{{- $cfg := fromToml .chezmoi.stdin -}}
+{{- $cfg = setValueAtPath "analytics.enabled" false $cfg -}}
+{{- $cfg = setValueAtPath "otel" (dict
+      "exporter" "none"
+      "metrics_exporter" "none"
+      "trace_exporter" "none"
+      "log_user_prompt" false) $cfg -}}
+{{- /* The memini plugin pins its MCP server to localhost; use the remote server below instead. */ -}}
+{{- $cfg = setValueAtPath (list "plugins" "memini@memini" "mcp_servers" "memini" "enabled") false $cfg -}}
+{{- $cfg = setValueAtPath (list "mcp_servers" "godot-ai") (dict
+      "command" "/opt/homebrew/bin/uvx"
+      "args" (list
+        "--isolated"
+        "--no-config"
+        "--no-env-file"
+        "--no-sources"
+        "--no-build"
+        "--index-strategy" "first-index"
+        "--keyring-provider" "disabled"
+        "--index" "https://pypi.org/simple"
+        "--default-index" "https://pypi.org/simple"
+        "--find-links" "https://pypi.org/simple/godot-ai/"
+        "--link-mode" "copy"
+        "--from" "godot-ai==4.2.1"
+        "godot-ai"
+        "attach"
+        "--port" "8000"
+        "--ws-port" "9500"
+        "--disable-telemetry")
+      "enabled" true
+      "startup_timeout_sec" 60
+      "tool_timeout_sec" 360) $cfg -}}
+{{- if hasKey $cfg "mcp_servers" -}}
+{{- $_ := unset (get $cfg "mcp_servers") "litellm_mcp" -}}
+{{- end -}}
+{{- $cfg = setValueAtPath "mcp_servers.mcp-gateway" (dict
+      "enabled" true
+      "url" "https://mcp.housefam.casa/mcp"
+      "http_headers" (dict
+        "Authorization" (printf "Bearer %s" (onepasswordRead "op://Kubernetes/mcp-gateway/MCP_GATEWAY_KEY")))) $cfg -}}
+{{- /* Static headers: the desktop app doesn't inherit the fish environment. Codex can't resolve a per-repo namespace for MCP calls, so writes go to the home namespace. */ -}}
+{{- $cfg = setValueAtPath "mcp_servers.memini" (dict
+      "url" "https://memini.housefam.casa/mcp"
+      "http_headers" (dict
+        "X-Memini-Home" "personal/cayce"
+        "X-Memini-Namespace" "personal/cayce")) $cfg -}}
+{{- toToml $cfg -}}
