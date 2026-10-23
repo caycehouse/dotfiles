@@ -40,10 +40,10 @@
       "url" "https://mcp.housefam.casa/mcp"
       "http_headers" (dict
         "Authorization" (printf "Bearer %s" (onepasswordRead "op://Kubernetes/mcp-gateway/MCP_GATEWAY_KEY")))) $cfg -}}
-{{- /* Static headers: the desktop app doesn't inherit the fish environment. Codex can't resolve a per-repo namespace for MCP calls, so writes go to the home namespace. */ -}}
+{{- /* The helper runs in the chat's working directory; the desktop app does not inherit fish environment variables. */ -}}
 {{- $cfg = setValueAtPath "mcp_servers.memini" (dict
       "url" "https://memini.housefam.casa/mcp"
+      "http_headers_helper" (printf "'%s/.codex/memini-headers.py'" .chezmoi.homeDir)
       "http_headers" (dict
-        "X-Memini-Home" "personal/cayce"
-        "X-Memini-Namespace" "personal/cayce")) $cfg -}}
+        "X-Memini-Home" "personal/cayce")) $cfg -}}
 {{- toToml $cfg -}}

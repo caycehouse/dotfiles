@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+import json
+from pathlib import Path
+import subprocess
+import sys
+import urllib.request
+
+
+def git(*args):
+    result = subprocess.run(
+        ["git", *args], capture_output=True, text=True, timeout=2
+    )
+    return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def main():
+    home = "personal/cayce"
+    toplevel = git("rev-parse", "--show-toplevel")
+    if not toplevel:
+        return {"X-Memini-Namespace": home}
+
+    project = {
+        "cwd_basename": Path.cwd().name,
+        "toplevel_path": toplevel,
+        "toplevel_basename": Path(toplevel).name,
+    }
+    remote = git("remote", "get-url", "origin")
+    if remote:
+        project["remote_url"] = remote
+    request = urllib.request.Request(
+        "https://memini.housefam.casa/v1/handshake",
+        data=json.dumps({"project": project, "client": {"name": "codex-headers"}}).encode(),
+        headers={"Content-Type": "application/json", "X-Memini-Home": home},
+    )
+    with urllib.request.urlopen(request, timeout=5) as response:
+        namespace = json.load(response)["namespace"]
+    if not isinstance(namespace, str) or not namespace.strip():
+        raise ValueError("handshake returned an empty namespace")
+    return {"X-Memini-Namespace": namespace}
+
+
+try:
+    print(json.dumps(main()))
+except (OSError, ValueError, KeyError, subprocess.TimeoutExpired) as error:
+    sys.exit(f"memini namespace resolution failed: {error}")
