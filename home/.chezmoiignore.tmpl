@@ -19,5 +19,14 @@
 # Config-specific exclusions
 
 {{ if (.isWorkComputer) }}
+.claude
+.claude/**
+.codex
+.codex/**
+.config/agents
+.config/agents/**
 .config/atuin/**
+.config/fish/conf.d/memini.fish
+.gemini
+.gemini/**
 {{ end }}
