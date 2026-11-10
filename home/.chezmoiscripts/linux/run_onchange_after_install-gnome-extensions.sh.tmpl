@@ -1,4 +1,3 @@
-{{- if (lookPath "gnome-extensions") -}}
 {{ $extensions := list
   "clipboard-indicator@tudmotu.com"
   "hide-minimized@danigm.net" -}}
@@ -7,18 +6,30 @@
 
 set -eufo pipefail
 
+command -v gnome-extensions >/dev/null || exit 0
+
 # Install GNOME Shell extensions that are not packaged for Fedora, pulling the
 # build that matches the running shell from extensions.gnome.org.
 shell_version="$(gnome-shell --version | grep -oE '[0-9]+' | head -1)"
 
+install_extension() {
+  local uuid="$1" info path tmp
+  info="$(curl -fsS "https://extensions.gnome.org/extension-info/?uuid=${uuid}&shell_version=${shell_version}")" || return 1
+  path="$(echo "$info" | python3 -c 'import sys,json; print(json.load(sys.stdin)["download_url"])')" || return 1
+  tmp="$(mktemp --suffix=.zip)"
+  curl -fsS -o "$tmp" "https://extensions.gnome.org${path}" && gnome-extensions install --force "$tmp"
+  local rc=$?
+  rm -f "$tmp"
+  return "$rc"
+}
+
 for uuid in {{ $extensions | join " " }}; do
   if ! gnome-extensions list 2>/dev/null | grep -qx "$uuid"; then
-    info="$(curl -fsS "https://extensions.gnome.org/extension-info/?uuid=${uuid}&shell_version=${shell_version}")"
-    path="$(echo "$info" | python3 -c 'import sys,json; print(json.load(sys.stdin)["download_url"])')"
-    tmp="$(mktemp --suffix=.zip)"
-    curl -fsS -o "$tmp" "https://extensions.gnome.org${path}"
-    gnome-extensions install --force "$tmp"
-    rm -f "$tmp"
+    # A new GNOME Shell release often has no build yet; skip rather than abort.
+    if ! install_extension "$uuid"; then
+      echo "warning: no build of $uuid for GNOME Shell $shell_version; skipping" >&2
+      continue
+    fi
   fi
   # enable() fails until the shell reloads the freshly-installed extension, so
   # fall back to registering the UUID directly for the next login.
@@ -31,4 +42,3 @@ for uuid in {{ $extensions | join " " }}; do
     esac
   }
 done
-{{ end -}}

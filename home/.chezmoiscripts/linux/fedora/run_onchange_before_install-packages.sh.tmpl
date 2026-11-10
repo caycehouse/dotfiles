@@ -35,6 +35,8 @@
 
 set -eufo pipefail
 
+# fedora version: {{ .chezmoi.osRelease.versionID }}
+
 # https://rpmfusion.org/Howto/Multimedia
 if rpm -q --quiet ffmpeg-free; then
   {{ template "sudo.tmpl" . }}dnf swap -y ffmpeg-free ffmpeg --allowerasing
@@ -46,5 +48,5 @@ fi
 # https://www.reddit.com/r/Fedora/comments/1olj9a2/i_cant_use_microsoft_fonts_after_updating_to
 if ! rpm -q --quiet msttcore-fonts-installer ; then
   {{ template "sudo.tmpl" . }}dnf install -y cabextract xorg-x11-font-utils
-  {{ template "sudo.tmpl" . }}rpm --nodigest -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+  {{ template "sudo.tmpl" . }}rpm --nodigest --nosignature -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 fi

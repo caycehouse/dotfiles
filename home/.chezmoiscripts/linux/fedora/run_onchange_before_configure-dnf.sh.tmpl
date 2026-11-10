@@ -2,14 +2,7 @@
 
 set -eufo pipefail
 
-# Define the setting to be added
-CONFIG_LINE="max_parallel_downloads=10"
-CONFIG_FILE="/etc/dnf/dnf.conf"
+# dnf5-plugins provides config-manager; dnf-plugins-core is the dnf4 package.
+{{ template "sudo.tmpl" . }}dnf install -y dnf5-plugins
 
-# Check if the line already exists before appending
-if ! grep -q "^${CONFIG_LINE}$" "$CONFIG_FILE"; then
-  echo "$CONFIG_LINE" | {{ template "sudo.tmpl" . }}tee -a "$CONFIG_FILE" > /dev/null
-fi
-
-# Ensure dnf-plugins-core is installed
-{{ template "sudo.tmpl" . }}dnf install -y dnf-plugins-core
+{{ template "sudo.tmpl" . }}dnf config-manager setopt max_parallel_downloads=10

@@ -1,4 +1,3 @@
-{{- if (lookPath "flatpak") -}}
 {{ $flatpaks := list
   "com.github.tchx84.Flatseal"
   "io.github.shiftey.Desktop"
@@ -14,11 +13,11 @@
 
 set -eufo pipefail
 
+command -v flatpak >/dev/null || exit 0
+
 # Configure Flathub repository
 {{ template "sudo.tmpl" . }}flatpak remote-delete fedora --force 2>/dev/null || true
 {{ template "sudo.tmpl" . }}flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Install all flatpaks
 flatpak install -y {{ $flatpaks | join " " }}
-
-{{ end -}}

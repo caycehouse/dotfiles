@@ -3,12 +3,31 @@
   "https://downloads.k8slens.dev/rpm/lens.repo" -}}
 
 {{   $repos = concat $repos (list
-      (joinPath .chezmoi.sourceDir "/../assets/repos/google-chrome.repo")
       (joinPath .chezmoi.sourceDir "/../assets/repos/vscode.repo")) -}}
 
 #!/usr/bin/env bash
 
 set -eufo pipefail
+
+# fedora version: {{ .chezmoi.osRelease.versionID }}
+
+# https://rpmfusion.org/Configuration
+# Installing through dnf avoids rpm's NOKEY failure under enforced signature
+# checking. The upgrade then pulls the current release packages, which ship
+# repo files and keys at the paths the running Fedora release expects.
+if ! rpm -q --quiet rpmfusion-free-release rpmfusion-nonfree-release; then
+  fedora="$(rpm -E %fedora)"
+  {{ template "sudo.tmpl" . }}dnf install -y \
+    "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${fedora}.noarch.rpm" \
+    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${fedora}.noarch.rpm"
+fi
+{{ template "sudo.tmpl" . }}dnf upgrade -y --refresh 'rpmfusion-*-release'
+
+# Use Fedora's own google-chrome repo, shipped by fedora-workstation-repositories.
+# A same-named file in /etc/yum.repos.d would mask it.
+{{ template "sudo.tmpl" . }}dnf install -y fedora-workstation-repositories
+{{ template "sudo.tmpl" . }}rm -f /etc/yum.repos.d/google-chrome.repo
+{{ template "sudo.tmpl" . }}dnf config-manager setopt google-chrome.enabled=1
 
 {{ range $repos }}
 {{- if not (hasPrefix "http" .) }}

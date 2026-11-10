@@ -1,11 +1,11 @@
-{{- if (lookPath "gsettings") -}}
 #!/usr/bin/env bash
 
 set -eufo pipefail
+
+command -v gsettings >/dev/null || exit 0
 
 # Disable version-check for gnome extensions.
 gsettings set org.gnome.shell disable-extension-version-validation true
 
 # Enable Maximize and Minimize window buttons (Tweaks > Windows).
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-{{ end -}}
